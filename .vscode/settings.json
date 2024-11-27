@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "G3.sln"
+    "dotnet.defaultSolution": "TNT_Game.sln"
 }
