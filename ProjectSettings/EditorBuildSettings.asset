@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/PlayerControllerAndre/Demo/Demo.unity
+    guid: 535fd34df5cb8814bb412fb939205b7c
+  - enabled: 1
+    path: Assets/Scenes/Controll.unity
+    guid: b2ad6395e944bb74d96e6698ac3fbe56
+  - enabled: 1
+    path: Assets/Scenes/ExitGames.unity
+    guid: 62988b924bd458141a458660703c27c8
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: aa37074a308e56f439df1c08b9d8ad43
+  - enabled: 1
+    path: Assets/Scenes/OpenCredits.unity
+    guid: a58a23b39ff8a03419c0553e9bcf956f
   m_configObjects: {}
