@@ -10,7 +10,7 @@ public class MenuManage : MonoBehaviour
 
     public void OpenCredits()
     {
-        SceneManager.LoadScene("Credits"); // Carrega a cena chamada "Credits"
+        SceneManager.LoadScene("OpenCredits"); // Carrega a cena chamada "Credits"
     }
 
     public void OpenControls()
