@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PowerFocusPinkLemonade : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class PowerFocusPinkLemonade : MonoBehaviour
     public GameObject fieldOfViewEffect; // Efeito visual para restringir o campo de visão
     public KeyCode actionKey = KeyCode.E; // Tecla para ativar/desativar a habilidade
 
+    public Light2D spotLight; // Spot Light 2D no jogador
+    public Light2D globalLight; // Global Light 2D
+
     private float originalSpeed; // Velocidade original do jogador
     private PlayerControl playerControl; // Referência ao script de controle do jogador
     private bool isRevealing = false; // Estado da habilidade
     private SpriteRenderer[] allRevealableObjects; // Cache de todos os objetos reveláveis
-    private SpriteRenderer[] allFalseWalls; // Cache de todas as paredes falsas
 
     void Start()
     {
@@ -23,12 +26,23 @@ public class PowerFocusPinkLemonade : MonoBehaviour
             originalSpeed = playerControl.velocidade;
         }
 
-        // Encontrar todos os objetos reveláveis e paredes falsas no início
+        // Encontrar todos os objetos reveláveis no início
         allRevealableObjects = FindObjectsOfType<SpriteRenderer>();
+
+        // Desativar as luzes no início
+        if (spotLight != null)
+        {
+            spotLight.enabled = false;
+        }
+        if (globalLight != null)
+        {
+            globalLight.enabled = false;
+        }
     }
 
     void Update()
     {
+        // Verifica se a tecla foi pressionada para ativar/desativar a habilidade
         if (Input.GetKeyDown(actionKey))
         {
             if (isRevealing)
@@ -46,6 +60,16 @@ public class PowerFocusPinkLemonade : MonoBehaviour
     {
         isRevealing = true;
 
+        // Ativar as luzes
+        if (spotLight != null)
+        {
+            spotLight.enabled = true;
+        }
+        if (globalLight != null)
+        {
+            globalLight.enabled = true;
+        }
+
         // Ativar o campo de visão restrito
         if (fieldOfViewEffect != null)
         {
@@ -58,10 +82,11 @@ public class PowerFocusPinkLemonade : MonoBehaviour
             playerControl.velocidade *= slowMovementFactor;
         }
 
-        // Revelar todos os itens e paredes falsas
+        // Revelar todos os itens invisíveis e paredes falsas
         foreach (SpriteRenderer renderer in allRevealableObjects)
         {
             GameObject obj = renderer.gameObject;
+
             if (obj.CompareTag("InvisibleItem"))
             {
                 // Tornar visível e ajustar o Collider2D
@@ -75,7 +100,7 @@ public class PowerFocusPinkLemonade : MonoBehaviour
             }
             else if (obj.CompareTag("FalseWall"))
             {
-                // Tornar semitransparente e atravessável
+                // Tornar a parede falsa semitransparente e atravessável
                 renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.5f);
                 Collider2D collider = obj.GetComponent<Collider2D>();
                 if (collider != null)
@@ -96,16 +121,27 @@ public class PowerFocusPinkLemonade : MonoBehaviour
             fieldOfViewEffect.SetActive(false);
         }
 
+        // Desativar as luzes
+        if (spotLight != null)
+        {
+            spotLight.enabled = false;
+        }
+        if (globalLight != null)
+        {
+            globalLight.enabled = false;
+        }
+
         // Restaurar a velocidade do jogador
         if (playerControl != null)
         {
             playerControl.velocidade = originalSpeed;
         }
 
-        // Restaurar o estado original de todos os itens e paredes falsas
+        // Tornar invisíveis os itens revelados e restaurar as paredes falsas
         foreach (SpriteRenderer renderer in allRevealableObjects)
         {
             GameObject obj = renderer.gameObject;
+
             if (obj.CompareTag("InvisibleItem"))
             {
                 // Tornar invisível e ajustar o Collider2D para ser atravessável
@@ -118,7 +154,7 @@ public class PowerFocusPinkLemonade : MonoBehaviour
             }
             else if (obj.CompareTag("FalseWall"))
             {
-                // Tornar opaco e sólido
+                // Tornar a parede falsa opaca e não atravessável
                 renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
                 Collider2D collider = obj.GetComponent<Collider2D>();
                 if (collider != null)
