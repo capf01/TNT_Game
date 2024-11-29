@@ -8,10 +8,10 @@ public class CollectItem : MonoBehaviour
 {
     [Header("UI")]
     public Image itemImage; //imagem da UI que vai ganhar cor/sprite da lata
-    public Sprite originalSprite; 
+    public Sprite originalSprite;
     public Sprite mangoSprite;
-    public Sprite zeroSprite; 
-    public Sprite focusSprite; 
+    public Sprite zeroSprite;
+    public Sprite focusSprite;
     public Sprite acaiSprite;
 
     [Header("Som")]
@@ -39,7 +39,7 @@ public class CollectItem : MonoBehaviour
         {
             AtualizarUI(originalSprite, "Original");
             Destroy(collision.gameObject); //remover item da cena
-            
+
             //verificar pulo duplo
             if (playerController != null)
             {
@@ -60,8 +60,8 @@ public class CollectItem : MonoBehaviour
             Destroy(collision.gameObject);
 
             //verificar dash
-            if (taroDevStats != null && taroDevStats.AllowDash) 
-            { 
+            if (taroDevStats != null && taroDevStats.AllowDash)
+            {
                 if (playerController != null)
                 {
                     playerController.ActivateDash(); // habilitar o dash no PlayerController
@@ -76,11 +76,11 @@ public class CollectItem : MonoBehaviour
             AtualizarUI(focusSprite, "Focus");
             Destroy(collision.gameObject);
 
-            // ativar a visualização do invisível
+            // ativar a visualiza  o do invis vel
             if (powerFocusPinkLemonade != null)
             {
-                powerFocusPinkLemonade.ActivateVisionReveal(); 
-                Debug.Log("Poder de visualização ativado");
+                powerFocusPinkLemonade.ActivateVisionReveal();
+                Debug.Log("Poder de visualiza  o ativado");
             }
         }
 
@@ -120,7 +120,7 @@ public class CollectItem : MonoBehaviour
     }
 
     //som quando pega item
-    private void PlayGetItem() 
+    private void PlayGetItem()
     {
         if (audioSource != null && getItemSound != null)
         {
@@ -128,7 +128,7 @@ public class CollectItem : MonoBehaviour
         }
     }
 }
-/* LÓGICA SUPONDO QUE ADD NO PLAYERCONTROLLER 
+/* L GICA SUPONDO QUE ADD NO PLAYERCONTROLLER 
 public void ActivateDash() //DASH
 {
     if (_canDash) 
@@ -146,7 +146,6 @@ public void EnableDoubleJump() //PULO DUPLO
 }
 
 /* TAG ACAI - CESAR; Destroy_Cesar e PushOrDestroy_Cesar 
-add referências do CollectItem aos scripts Destroy_Cesar e PushOrDestroy_Cesar:
+add refer ncias do CollectItem aos scripts Destroy_Cesar e PushOrDestroy_Cesar:
 
 */
-
