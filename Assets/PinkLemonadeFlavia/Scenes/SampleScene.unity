@@ -968,6 +968,8 @@ MonoBehaviour:
   slowMovementFactor: 0.5
   fieldOfViewEffect: {fileID: 0}
   actionKey: 101
+  abilityDuration: 10
+  cooldownTime: 10
   spotLight: {fileID: 189372551}
   globalLight: {fileID: 1240699399}
 --- !u!1 &1116342748
