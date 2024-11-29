@@ -5,17 +5,21 @@ public class MenuManage : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Demo"); // Carrega a cena chamada "Game"
+        SceneManager.LoadScene("Demo"); 
     }
 
     public void OpenCredits()
     {
-        SceneManager.LoadScene("OpenCredits"); // Carrega a cena chamada "Credits"
+        SceneManager.LoadScene("OpenCredits");  
     }
 
     public void OpenControls()
     {
-        SceneManager.LoadScene("Controll"); // Carrega a cena chamada "Control"
+        SceneManager.LoadScene("Controll"); 
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");  
     }
 
     public void ExitGames()
