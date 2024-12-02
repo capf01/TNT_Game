@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &196679683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -542,7 +542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueButton: {fileID: 763617111}
   resetOrNewGameButton: {fileID: 1529878726}
-  vidaJogador: 0.1
+  mainMenuButton: {fileID: 0}
+  pauseButton: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!4 &621469700
 Transform:
   m_ObjectHideFlags: 0
@@ -713,7 +715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &693825482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1089,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &853128706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1717,7 +1719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1613914271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1963397247
 RectTransform:
   m_ObjectHideFlags: 0
