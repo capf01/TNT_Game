@@ -8,6 +8,8 @@ public class PowerFocusPinkLemonade : MonoBehaviour
     public float slowMovementFactor = 0.5f; // Fator de redução da velocidade do jogador
     public GameObject fieldOfViewEffect; // Efeito visual para restringir o campo de visão
     public KeyCode actionKey = KeyCode.E; // Tecla para ativar/desativar a habilidade
+    public float abilityDuration = 40f; // Duração do modo em segundos
+    public float cooldownTime = 20f; // Tempo de recarga em segundos
 
     public Light2D spotLight; // Spot Light 2D no jogador
     public Light2D globalLight; // Global Light 2D
@@ -15,6 +17,7 @@ public class PowerFocusPinkLemonade : MonoBehaviour
     private float originalSpeed; // Velocidade original do jogador
     private PlayerControl playerControl; // Referência ao script de controle do jogador
     private bool isRevealing = false; // Estado da habilidade
+    private bool isOnCooldown = false; // Indica se a habilidade está em recarga
     private SpriteRenderer[] allRevealableObjects; // Cache de todos os objetos reveláveis
 
     void Start()
@@ -42,6 +45,12 @@ public class PowerFocusPinkLemonade : MonoBehaviour
 
     void Update()
     {
+        // Verifica se a habilidade está em cooldown
+        if (isOnCooldown)
+        {
+            return; // Não permite ativar a habilidade durante o cooldown
+        }
+        
         // Verifica se a tecla foi pressionada para ativar/desativar a habilidade
         if (Input.GetKeyDown(actionKey))
         {
@@ -109,6 +118,7 @@ public class PowerFocusPinkLemonade : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(EndVisionRevealAfterDuration());
     }
 
     void DeactivateVisionReveal()
@@ -163,5 +173,18 @@ public class PowerFocusPinkLemonade : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator EndVisionRevealAfterDuration()
+    {
+        yield return new WaitForSeconds(abilityDuration);
+        DeactivateVisionReveal();
+        StartCoroutine(Cooldown());
+    }
+
+    IEnumerator Cooldown()
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(cooldownTime);
+        isOnCooldown = false;
     }
 }
