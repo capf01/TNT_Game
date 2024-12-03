@@ -9,8 +9,7 @@ public class MovingPlatform : MonoBehaviour
     public float velocidade = 1f; // Velocidade da plataforma
 
     private Vector3 direcao; // Direção do movimento
-    private Transform player; // Referência ao player para mover junto com a plataforma
-    private bool playerSobrePlataforma = false; // Verifica se o player está na plataforma
+    private List<Transform> objetosNaPlataforma = new List<Transform>(); // Lista de objetos na plataforma
 
     void Start()
     {
@@ -21,7 +20,14 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         // Movimenta a plataforma
-        transform.position += direcao * velocidade * Time.deltaTime;
+        Vector3 movimento = direcao * velocidade * Time.deltaTime;
+        transform.position += movimento;
+
+        // Move os objetos na plataforma
+        foreach (Transform obj in objetosNaPlataforma)
+        {
+            obj.position += movimento;
+        }
 
         // Verifica os limites e inverte a direção
         if (Vector2.Distance(transform.position, pontoB.position) < 0.1f)
@@ -36,23 +42,19 @@ public class MovingPlatform : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica se o player entrou na plataforma
-        if (collision.collider.CompareTag("Player"))
+        // Adiciona o objeto à lista se ele colidir com a plataforma
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Carregavel"))
         {
-            player = collision.transform; // Armazena a referência ao player
-            player.SetParent(transform); // Faz o player seguir a plataforma
-            playerSobrePlataforma = true;
+            objetosNaPlataforma.Add(collision.transform);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        // Verifica se o player saiu da plataforma
-        if (collision.collider.CompareTag("Player"))
+        // Remove o objeto da lista se ele sair da plataforma
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Carregavel"))
         {
-            player.SetParent(null); // Remove o vínculo com a plataforma
-            player = null; // Limpa a referência ao player
-            playerSobrePlataforma = false;
+            objetosNaPlataforma.Remove(collision.transform);
         }
     }
 }
