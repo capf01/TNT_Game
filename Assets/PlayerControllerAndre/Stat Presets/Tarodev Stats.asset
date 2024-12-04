@@ -35,10 +35,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   RequireInputPush: 0
-  WallClimbSpeed: 5
-  WallFallAcceleration: 8
-  MaxWallFallSpeed: 15
-  WallJumpPower: {x: 30, y: 25}
+  WallClimbSpeed: 4
+  WallFallAcceleration: 5
+  MaxWallFallSpeed: 10
+  WallJumpPower: {x: 15, y: 20}
   WallJumpInputLossFrames: 18
   AllowLadders: 1
   SnapToLadders: 1
@@ -47,8 +47,8 @@ MonoBehaviour:
     m_Bits: 128
   LadderSnapSpeed: 0.05
   LadderShimmySpeedMultiplier: 0.5
-  LadderClimbSpeed: 8
-  LadderSlideSpeed: 12
+  LadderClimbSpeed: 5
+  LadderSlideSpeed: 7
   LadderCooldownFrames: 8
   AllowLedges: 1
   LedgeGrabDeceleration: 4

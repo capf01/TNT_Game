@@ -23,6 +23,8 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        public bool _downStairs;
+        public bool _isCrouching;
 
         #endregion
 
@@ -85,6 +87,9 @@ namespace TarodevController {
 
             if (_frameInput.DashDown && _stats.AllowDash) _dashToConsume = true;
             if (_frameInput.AttackDown && _stats.AllowAttacks) _attackToConsume = true;
+
+            if (_frameInput.Move.y == -1) _isCrouching = true;
+            else _isCrouching = false;
         }
 
         protected virtual void FixedUpdate() {
@@ -319,7 +324,7 @@ namespace TarodevController {
         protected virtual bool CrouchPressed => _frameInput.Move.y < -_stats.VerticalDeadzoneThreshold;
 
         protected virtual void HandleCrouching() {
-            if (!_stats.AllowCrouching) return;
+            if (!_stats.AllowCrouching || _downStairs) return;
 
             if (_crouching && _onLadder) ToggleCrouching(false); // use standing collider when on ladder
             if (_crouching != CrouchPressed) ToggleCrouching(!_crouching);
