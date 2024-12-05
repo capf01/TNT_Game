@@ -4,35 +4,49 @@ public class CloudMover : MonoBehaviour
 {
     [Header("Configurações de Movimento")]
     public float speed = 2f; // Velocidade do movimento
-    public float leftLimit = -10f; // Limite à esquerda
-    public float rightLimit = 10f; // Limite à direita
-    private Vector3 direction = Vector3.left; // Direção inicial do movimento
+    public float moveDistanceRight = 5f; // Distância que a nuvem irá para a direita
+    public float moveDistanceLeft = 5f; // Distância que a nuvem irá para a esquerda
+
+    private Vector3 startPosition; // Posição inicial da nuvem
+    private Vector3 targetPosition; // Posição alvo atual da nuvem
+    private bool movingRight = true; // Controla se a nuvem está indo para a direita
+
+    void Start()
+    {
+        // Define a posição inicial e o primeiro destino
+        startPosition = transform.position;
+        targetPosition = startPosition + Vector3.right * moveDistanceRight;
+    }
 
     void Update()
     {
-        // Move a nuvem na direção atual
         MoveCloud();
 
-        // Verifica se a nuvem alcançou os limites
-        if (transform.position.x <= leftLimit)
+        // Verifica se a nuvem alcançou o destino
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            ChangeDirection(Vector3.right);
-        }
-        else if (transform.position.x >= rightLimit)
-        {
-            ChangeDirection(Vector3.left);
+            ChangeDirection();
         }
     }
 
     private void MoveCloud()
     {
-        // Realiza o movimento baseado na direção e velocidade
-        transform.Translate(direction * speed * Time.deltaTime);
+        // Move a nuvem em direção à posição alvo
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
 
-    private void ChangeDirection(Vector3 newDirection)
+    private void ChangeDirection()
     {
-        // Altera a direção do movimento
-        direction = newDirection;
+        // Alterna entre direita e esquerda
+        movingRight = !movingRight;
+
+        if (movingRight)
+        {
+            targetPosition = startPosition + Vector3.right * moveDistanceRight;
+        }
+        else
+        {
+            targetPosition = startPosition + Vector3.left * moveDistanceLeft;
+        }
     }
 }
