@@ -3,28 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - InvisibleItem
-  - FalseWall
-  - Original
-  - Zero
-  - Attack
-  - Acai
-  - Mango
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Wall
-  - Ladder
-  - Player
-  - OneWayPlatform
-  - GrapplingWall
-  - TNT
-  - Flag
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

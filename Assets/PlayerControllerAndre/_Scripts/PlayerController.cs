@@ -375,7 +375,6 @@ namespace TarodevController {
         #endregion
 
         #region Jumping
-
         private bool _jumpToConsume;
         private bool _endedJumpEarly;
         private bool _coyoteUsable;

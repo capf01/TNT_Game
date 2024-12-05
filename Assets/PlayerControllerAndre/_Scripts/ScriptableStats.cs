@@ -109,6 +109,7 @@ namespace TarodevController {
 
         [Tooltip("How fast you slide down ladders")]
         public float LadderSlideSpeed = 12;
+        //teste
         
         [Tooltip("How many frames can pass between ladder interactions. Helps jittery movement and jumping glitches")]
         public int LadderCooldownFrames = 8;

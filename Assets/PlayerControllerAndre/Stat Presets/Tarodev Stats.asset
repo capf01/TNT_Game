@@ -24,6 +24,7 @@ MonoBehaviour:
   CrouchSlowdownFrames: 50
   CrouchBufferCheck: 0.1
   AllowDoubleJump: 0
+  AllowDoubleJump: 1
   MaxAirJumps: 1
   JumpPower: 23
   MaxFallSpeed: 25
