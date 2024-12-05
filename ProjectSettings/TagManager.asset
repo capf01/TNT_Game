@@ -6,6 +6,11 @@ TagManager:
   tags:
   - InvisibleItem
   - FalseWall
+  - Original
+  - Zero
+  - Attack
+  - Acai
+  - Mango
   layers:
   - Default
   - TransparentFX
@@ -17,9 +22,9 @@ TagManager:
   - Ladder
   - Player
   - OneWayPlatform
-  - Ladder
-  - 
-  - 
+  - GrapplingWall
+  - TNT
+  - Flag
   - 
   - 
   - 

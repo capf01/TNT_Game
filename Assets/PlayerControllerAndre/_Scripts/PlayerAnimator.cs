@@ -8,6 +8,7 @@ namespace TarodevController {
         private Animator _anim;
         private SpriteRenderer _renderer;
         private AudioSource _source;
+        [SerializeField] private GameObject _attack;
 
         private void Awake() {
             _player = GetComponentInParent<IPlayerController>();
@@ -39,6 +40,12 @@ namespace TarodevController {
             if (_player.ClimbingLedge) return;
             if (_player.WallDirection != 0) _renderer.flipX = _player.WallDirection == -1;
             else if (Mathf.Abs(_player.Input.x) > 0.1f) _renderer.flipX = _player.Input.x < 0;
+
+            if (_player.Speed.x > 0) _attack.transform.localPosition = new Vector3(Mathf.Abs(_attack.transform.localPosition.x), _attack.transform.localPosition.y, _attack.transform.localPosition.z);
+            else if (_player.Speed.x < 0) _attack.transform.localPosition = new Vector3(-Mathf.Abs(_attack.transform.localPosition.x), _attack.transform.localPosition.y, _attack.transform.localPosition.z);
+
+
+
         }
 
         #region Ground Movement
@@ -350,6 +357,25 @@ namespace TarodevController {
             _source.PlayOneShot(clip, volume);
         }
 
+        #endregion
+
+        #region Trigger
+
+        [Header("TRIGGER")]
+        [SerializeField] private AudioClip _pickupItem;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("TNT"))
+            {
+                PlaySound(_pickupItem, 0.1f, 1.3f);
+            }
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Flag"))
+            {
+                Debug.Log("Flag");
+                PlaySound(_pickupItem, 0.1f, 2f);
+            }
+        }
         #endregion
     }
 }

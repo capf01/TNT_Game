@@ -16,6 +16,7 @@ namespace TarodevController {
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
         private PlayerInput _input;
+        private GrapplinHook _hook;
         private bool _cachedTriggerSetting;
 
         private FrameInput _frameInput;
@@ -25,6 +26,8 @@ namespace TarodevController {
         private bool _hasControl = true;
         public bool _downStairs;
         public bool _isCrouching;
+        public bool _grappling;
+        public float _grapplingGravity;
 
         #endregion
 
@@ -67,10 +70,12 @@ namespace TarodevController {
         protected virtual void Awake() {
             _rb = GetComponent<Rigidbody2D>();
             _input = GetComponent<PlayerInput>();
+            _hook = GetComponent<GrapplinHook>();
             _cachedTriggerSetting = Physics2D.queriesHitTriggers;
             Physics2D.queriesStartInColliders = false;
 
             ToggleColliders(isStanding: true);
+            ResetStats();
         }
 
         protected virtual void Update() {
@@ -105,11 +110,24 @@ namespace TarodevController {
             HandleJump();
             HandleDash();
             HandleAttacking();
-            
+            HandleGrapplingHook();
+
             HandleHorizontal();
             HandleVertical();
             ApplyVelocity();
         }
+
+        #region Stats
+
+        private void ResetStats()
+        {
+            _stats.AllowDoubleJump = false;
+            _stats.AllowDash = false;
+            _stats.AllowAttacks = false;
+            _stats.AllowGrapplingHook = false;
+        }
+
+        #endregion
 
         #region Collisions
 
@@ -373,7 +391,7 @@ namespace TarodevController {
             if (_jumpToConsume || HasBufferedJump) {
                 if (_isOnWall && !_isLeavingWall) WallJump();
                 else if (_grounded || _onLadder || CanUseCoyote) NormalJump();
-                else if (_jumpToConsume && CanAirJump) AirJump();
+                else if (_jumpToConsume && CanAirJump && _stats.AllowDoubleJump) AirJump();
             }
             
             _jumpToConsume = false; // Always consume the flag
@@ -481,6 +499,16 @@ namespace TarodevController {
 
         #endregion
 
+        #region Grappling Hook
+
+        private void HandleGrapplingHook()
+        {
+            if (_stats.AllowGrapplingHook) _hook.enabled = true;
+            else _hook.enabled = false;
+        }
+
+        #endregion
+
         #region Horizontal
 
         protected virtual void HandleHorizontal() {
@@ -538,11 +566,20 @@ namespace TarodevController {
                 else if (_grabbingLedge) _speed.y = Mathf.MoveTowards(_speed.y, 0, _stats.LedgeGrabDeceleration * Time.fixedDeltaTime);
                 else _speed.y = Mathf.MoveTowards(Mathf.Min(_speed.y, 0), -_stats.MaxWallFallSpeed, _stats.WallFallAcceleration * Time.fixedDeltaTime);
             }
+            else if (_grappling)
+            {
+                _stats.FallAcceleration = _stats.GrapplingGravity;
+                _stats.MaxSpeed = 20;
+            }
+
             // In Air
             else {
                 var inAirGravity = _stats.FallAcceleration;
                 if (_endedJumpEarly && _speed.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
                 _speed.y = Mathf.MoveTowards(_speed.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+
+                _stats.FallAcceleration = 60;
+                _stats.MaxSpeed = 6;
             }
         }
 

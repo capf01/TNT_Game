@@ -38,7 +38,10 @@ namespace TarodevController {
         [Tooltip("Detection height offset from the top of the standing collider. Smaller values risk collisions when standing up")]
         public float CrouchBufferCheck = 0.1f;
 
-        [Header("JUMP")] 
+        [Header("JUMP")]
+        [Tooltip("Allows double jump")]
+        public bool AllowDoubleJump = true;
+
         [Tooltip("Amount of air jumps allowed. e.g. 1 is a standard double jump"), Min(0)]
         public int MaxAirJumps = 1;
 
@@ -148,6 +151,13 @@ namespace TarodevController {
 
         [Tooltip("The fixed frame cooldown of your players basic attack")]
         public int AttackFrameCooldown = 15;
+
+        [Header("GRAPPLING HOOK")]
+        [Tooltip("Allows the player to use Grappling Hook")]
+        public bool AllowGrapplingHook = true;
+
+        [Tooltip("The fixed frame cooldown of your players basic attack")]
+        public float GrapplingGravity = 0.1f;
 
         [Header("COLLISIONS")]
         [Tooltip("Set this to the layer your player is on")]
