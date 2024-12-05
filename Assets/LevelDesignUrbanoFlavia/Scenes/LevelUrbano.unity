@@ -957,7 +957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2082634428721987330, guid: 01798ff11d47c724babdd35c0de2b753, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -284.1
+      value: -288.2
       objectReference: {fileID: 0}
     - target: {fileID: 2082634428721987330, guid: 01798ff11d47c724babdd35c0de2b753, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1518,6 +1518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 373557622}
   - component: {fileID: 373557621}
+  - component: {fileID: 373557623}
   m_Layer: 0
   m_Name: TNT Original
   m_TagString: Untagged
@@ -1592,6 +1593,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &373557623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373557620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea5fb1c26b031e4384a8652b2a75bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 0}
+  originalSprite: {fileID: 0}
+  mangoSprite: {fileID: 0}
+  zeroSprite: {fileID: 0}
+  focusSprite: {fileID: 0}
+  acaiSprite: {fileID: 0}
+  getItemSound: {fileID: 0}
 --- !u!1 &379231586
 GameObject:
   m_ObjectHideFlags: 0
