@@ -6,55 +6,46 @@ public class MovingPlatform : MonoBehaviour
 {
     public Transform pontoA; // Ponto inicial
     public Transform pontoB; // Ponto final
-    public float velocidade = 1f; // Velocidade da plataforma
-
-    private Vector3 direcao; // Direção do movimento
-    private List<Transform> objetosNaPlataforma = new List<Transform>(); // Lista de objetos na plataforma
+    public float velocidade = 2f; // Velocidade da plataforma
+    private Vector3 alvoAtual; // O ponto para onde a plataforma está se movendo
+    private Transform jogador; // Referência ao jogador que está sobre a plataforma
 
     void Start()
     {
-        // Inicializar direção de movimento
-        direcao = (pontoB.position - pontoA.position).normalized;
+        // Começa indo para o ponto B
+        alvoAtual = pontoB.position;
     }
 
     void Update()
     {
-        // Movimenta a plataforma
-        Vector3 movimento = direcao * velocidade * Time.deltaTime;
-        transform.position += movimento;
+        // Move a plataforma em direção ao alvo atual
+        transform.position = Vector3.MoveTowards(transform.position, alvoAtual, velocidade * Time.deltaTime);
 
-        // Move os objetos na plataforma
-        foreach (Transform obj in objetosNaPlataforma)
+        // Verifica se chegou no alvo
+        if (Vector3.Distance(transform.position, alvoAtual) < 0.1f)
         {
-            obj.position += movimento;
-        }
-
-        // Verifica os limites e inverte a direção
-        if (Vector2.Distance(transform.position, pontoB.position) < 0.1f)
-        {
-            direcao = (pontoA.position - pontoB.position).normalized;
-        }
-        else if (Vector2.Distance(transform.position, pontoA.position) < 0.1f)
-        {
-            direcao = (pontoB.position - pontoA.position).normalized;
+            // Troca o alvo entre ponto A e ponto B
+            alvoAtual = (alvoAtual == pontoA.position) ? pontoB.position : pontoA.position;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    // Detecta quando o jogador entra na plataforma
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Adiciona o objeto à lista se ele colidir com a plataforma
-        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Carregavel"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            objetosNaPlataforma.Add(collision.transform);
+            jogador = collision.transform;
+            jogador.SetParent(transform); // Faz o jogador seguir a plataforma
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    // Detecta quando o jogador sai da plataforma
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        // Remove o objeto da lista se ele sair da plataforma
-        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Carregavel"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            objetosNaPlataforma.Remove(collision.transform);
+            jogador.SetParent(null); // Remove o jogador da plataforma
+            jogador = null;
         }
     }
 }
