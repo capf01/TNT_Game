@@ -9,6 +9,7 @@ public class MovingPlatform : MonoBehaviour
     public float velocidade = 2f; // Velocidade da plataforma
     private Vector3 alvoAtual; // O ponto para onde a plataforma está se movendo
     private Transform jogador; // Referência ao jogador que está sobre a plataforma
+    private Rigidbody2D jogadorRigidbody; // Rigidbody do jogador para manipular a física
 
     void Start()
     {
@@ -27,25 +28,35 @@ public class MovingPlatform : MonoBehaviour
             // Troca o alvo entre ponto A e ponto B
             alvoAtual = (alvoAtual == pontoA.position) ? pontoB.position : pontoA.position;
         }
+
+        // Se o jogador estiver em cima da plataforma, mova a física dele junto com a plataforma
+        if (jogador != null && jogadorRigidbody != null)
+        {
+            // Move o jogador horizontalmente com a plataforma
+            Vector3 movimentoPlataforma = transform.position - jogador.position;
+            jogadorRigidbody.velocity = new Vector2(movimentoPlataforma.x / Time.deltaTime, jogadorRigidbody.velocity.y);
+        }
     }
 
     // Detecta quando o jogador entra na plataforma
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        // Verifica se o objeto colidido tem a Layer "PlayerLayer"
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
         {
             jogador = collision.transform;
-            jogador.SetParent(transform); // Faz o jogador seguir a plataforma
+            jogadorRigidbody = jogador.GetComponent<Rigidbody2D>(); // Obtém o Rigidbody2D do jogador
         }
     }
 
     // Detecta quando o jogador sai da plataforma
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        // Verifica se o objeto colidido tem a Layer "PlayerLayer"
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
         {
-            jogador.SetParent(null); // Remove o jogador da plataforma
             jogador = null;
+            jogadorRigidbody = null; // Limpa a referência ao Rigidbody
         }
     }
 }
