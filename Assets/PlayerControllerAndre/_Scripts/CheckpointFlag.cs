@@ -1,17 +1,18 @@
 using UnityEngine;
+using TarodevController;
 
 public class CheckpointFlag : MonoBehaviour
 {
     public Sprite activatedSprite; // Sprite que será exibido ao ativar o checkpoint
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D collider;
+    private BoxCollider2D _collider;
     private ParticleSystem particles; // Partículas como objeto filho
-    private bool isActivated = false; // Impede reativação repetida
+    public bool isActivated = false; // Impede reativação repetida
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
+        _collider = GetComponent<BoxCollider2D>();
         particles = GetComponentInChildren<ParticleSystem>();
 
         if (particles != null)
@@ -20,10 +21,13 @@ public class CheckpointFlag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isActivated && collision.CompareTag("Player"))
+        PlayerController s = collision.gameObject.GetComponent<PlayerController>();
+
+        if (!isActivated && collision.CompareTag("Player") && s != null)
         {
+            s._checkpoint = gameObject.transform.position;
             isActivated = true; // Marca o checkpoint como ativado
-            collider.enabled = false;
+            _collider.enabled = false;
             spriteRenderer.sprite = activatedSprite; // Troca o sprite
 
             if (particles != null)

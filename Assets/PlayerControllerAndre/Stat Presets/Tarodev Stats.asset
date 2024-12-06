@@ -24,7 +24,6 @@ MonoBehaviour:
   CrouchSlowdownFrames: 50
   CrouchBufferCheck: 0.1
   AllowDoubleJump: 0
-  AllowDoubleJump: 1
   MaxAirJumps: 1
   JumpPower: 23
   MaxFallSpeed: 25
@@ -46,7 +45,7 @@ MonoBehaviour:
   SnapToLadders: 1
   LadderLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2048
   LadderSnapSpeed: 0.05
   LadderShimmySpeedMultiplier: 0.5
   LadderClimbSpeed: 5
@@ -64,6 +63,9 @@ MonoBehaviour:
   DashEndHorizontalMultiplier: 0.25
   AllowAttacks: 0
   AttackFrameCooldown: 15
+  AllowGrapplingHook: 0
+  GrapplingGravity: 0.1
+  AllowHyperFocus: 1
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0

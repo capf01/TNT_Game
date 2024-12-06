@@ -278,6 +278,28 @@ namespace TarodevController
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2ffe8c73-e603-472d-ae63-8c9d289b5616"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22965296-4691-448e-8699-7db8a54cf330"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0568f55d-4e6c-420d-84e7-9c855eddb769"",
                     ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
@@ -313,6 +335,17 @@ namespace TarodevController
                     ""name"": """",
                     ""id"": ""16339a03-9d6e-4261-afec-1f4e635839f7"",
                     ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5328cd82-fc10-4156-b631-98a63d95130b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

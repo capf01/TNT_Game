@@ -24,6 +24,8 @@ public class CollectItem : MonoBehaviour
     public PlayerController playerController; //dash e pulo duplo
     public ScriptableStats taroDevStats; //dash e pulo duplo
     public PowerFocusPinkLemonade powerFocusPinkLemonade; //script de visualizar o invisivel
+
+    public GameObject collectableParticles;
     //public Destroy_Cesar destroy;  // destruir parede
     //public PushOrDestroy_Cesar pushOrDestroy;  // empurrar parede
 
@@ -47,6 +49,7 @@ public class CollectItem : MonoBehaviour
                 taroDevStats.AllowDash = false;
                 taroDevStats.AllowAttacks = false;
                 taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
                 Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Zero"))
@@ -57,6 +60,7 @@ public class CollectItem : MonoBehaviour
                 taroDevStats.AllowDoubleJump = false;
                 taroDevStats.AllowAttacks = false;
                 taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
                 Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Acai"))
@@ -67,6 +71,7 @@ public class CollectItem : MonoBehaviour
                 taroDevStats.AllowDash = false;
                 taroDevStats.AllowDoubleJump = false;
                 taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
                 Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Mango"))
@@ -77,6 +82,24 @@ public class CollectItem : MonoBehaviour
                 taroDevStats.AllowAttacks = false;
                 taroDevStats.AllowDash = false;
                 taroDevStats.AllowDoubleJump = false;
+                taroDevStats.AllowHyperFocus = false;
+                Destroy(gameObject); //remover item da cena
+            }
+            else if (gameObject.CompareTag("PinkLemonade"))
+            {
+                //AtualizarUI(originalSprite, "Original");
+                _debugText.text = "TNT PinkLemonade = Hyper Focus";
+                taroDevStats.AllowHyperFocus = true;
+                taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowAttacks = false;
+                taroDevStats.AllowDash = false;
+                taroDevStats.AllowDoubleJump = false;
+                Destroy(gameObject); //remover item da cena
+            }
+
+            else if (gameObject.CompareTag("Collectable"))
+            {
+                Instantiate(collectableParticles, transform.position, transform.rotation);
                 Destroy(gameObject); //remover item da cena
             }
         }

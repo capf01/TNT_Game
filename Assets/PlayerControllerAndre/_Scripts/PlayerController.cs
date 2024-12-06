@@ -8,6 +8,7 @@ namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class PlayerController : MonoBehaviour, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
+        [SerializeField] private GameManager _gameManager;
 
         #region Internal
 
@@ -17,9 +18,11 @@ namespace TarodevController {
         private CapsuleCollider2D _col; // current active collider
         private PlayerInput _input;
         private GrapplinHook _hook;
+        private HyperFocus _hyperFocus;
+        public bool _isDead;
         private bool _cachedTriggerSetting;
 
-        private FrameInput _frameInput;
+        public FrameInput _frameInput;
         private Vector2 _speed;
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
@@ -71,6 +74,7 @@ namespace TarodevController {
             _rb = GetComponent<Rigidbody2D>();
             _input = GetComponent<PlayerInput>();
             _hook = GetComponent<GrapplinHook>();
+            _hyperFocus = GetComponent<HyperFocus>();
             _cachedTriggerSetting = Physics2D.queriesHitTriggers;
             Physics2D.queriesStartInColliders = false;
 
@@ -95,26 +99,31 @@ namespace TarodevController {
 
             if (_frameInput.Move.y == -1) _isCrouching = true;
             else _isCrouching = false;
+            HyperFocus();
         }
 
         protected virtual void FixedUpdate() {
             _fixedFrame++;
 
-            CheckCollisions();
-            HandleCollisions();
-            HandleWalls();
-            HandleLedges();
-            HandleLadders();
-            
-            HandleCrouching();
-            HandleJump();
-            HandleDash();
-            HandleAttacking();
-            HandleGrapplingHook();
+            if (!_isDead)
+            {
+                CheckCollisions();
+                HandleCollisions();
+                HandleWalls();
+                HandleLedges();
+                HandleLadders();
 
-            HandleHorizontal();
-            HandleVertical();
-            ApplyVelocity();
+                HandleCrouching();
+                HandleJump();
+                HandleDash();
+                HandleAttacking();
+                HandleGrapplingHook();
+                
+
+                HandleHorizontal();
+                HandleVertical();
+                ApplyVelocity();
+            }
         }
 
         #region Stats
@@ -125,6 +134,7 @@ namespace TarodevController {
             _stats.AllowDash = false;
             _stats.AllowAttacks = false;
             _stats.AllowGrapplingHook = false;
+            _stats.AllowHyperFocus = false;
         }
 
         #endregion
@@ -188,6 +198,15 @@ namespace TarodevController {
                 _grounded = false;
                 _frameLeftGrounded = _fixedFrame;
                 GroundedChanged?.Invoke(false, 0);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Death"))
+            {
+                Debug.Log("Espinho");
+                Death();
             }
         }
 
@@ -508,6 +527,17 @@ namespace TarodevController {
 
         #endregion
 
+        #region HYPER FOCUS
+        public void HyperFocus()
+        {
+            if (_stats.AllowHyperFocus && _frameInput.AttackDown)
+            {
+                _hyperFocus._hyperFocusOn = !_hyperFocus._hyperFocusOn; // Alterna o estado de _hyperFocusOn
+            }
+        }
+
+        #endregion
+
         #region Horizontal
 
         protected virtual void HandleHorizontal() {
@@ -579,6 +609,49 @@ namespace TarodevController {
 
                 _stats.FallAcceleration = 60;
                 _stats.MaxSpeed = 6;
+            }
+        }
+
+        #endregion
+
+        #region Death
+
+        [SerializeField] private GameObject deathEffectPrefab;
+        private void Death()
+        {
+            if (!_isDead)
+            {
+                _rb.velocity = Vector3.zero;
+                _isDead = true;
+                Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+                StartCoroutine(DeathCoroutine());
+            }
+        }
+
+        IEnumerator DeathCoroutine()
+        {
+            _gameManager.TriggerShake();
+            yield return new WaitForSeconds(1);
+            _gameManager.StartScreenTransition(1);
+            yield return new WaitForSeconds(0.7f);
+            PlayerRespawn();
+            _isDead = false;
+        }
+
+        #endregion
+
+        #region Respawn
+        public Vector3 _checkpoint;
+        public void PlayerRespawn()
+        {
+            // Teleporta o jogador para a posição do checkpoint
+            transform.position = _checkpoint;
+
+            // Caso esteja usando um Rigidbody2D, zerar a velocidade para evitar movimentos indesejados
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero; // Zera a velocidade do Rigidbody
             }
         }
 

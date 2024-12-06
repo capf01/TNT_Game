@@ -19,13 +19,11 @@ public class DownStair : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerController._downStairs = true;
-            Debug.Log("Esta no Player");
 
             if (playerController != null)
             {
                 if (playerController._isCrouching)
                 {
-                    Debug.Log("O Player est? abaixado (_crouching == true)");
                     m_BoxCollider.isTrigger = true;
                 }
             }
@@ -34,18 +32,27 @@ public class DownStair : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        playerController._downStairs = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController._downStairs = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        playerController._downStairs = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController._downStairs = false;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        m_BoxCollider.isTrigger = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            m_BoxCollider.isTrigger = false;
+        }
     }
 }

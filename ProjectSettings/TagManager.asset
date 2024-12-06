@@ -3,22 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Acai
+  - Original
+  - Attack
+  - Mango
+  - Zero
+  - Collectable
+  - PinkLemonade
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - TNT
+  - Flag
+  - GrapplingWall
+  - OneWayPlatform
+  - Ladder
+  - Player
+  - Death
   - 
   - 
   - 

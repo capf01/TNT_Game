@@ -109,7 +109,6 @@ namespace TarodevController {
 
         [Tooltip("How fast you slide down ladders")]
         public float LadderSlideSpeed = 12;
-        //teste
         
         [Tooltip("How many frames can pass between ladder interactions. Helps jittery movement and jumping glitches")]
         public int LadderCooldownFrames = 8;
@@ -157,8 +156,12 @@ namespace TarodevController {
         [Tooltip("Allows the player to use Grappling Hook")]
         public bool AllowGrapplingHook = true;
 
-        [Tooltip("The fixed frame cooldown of your players basic attack")]
+        [Tooltip("The Y gravity for the player when grappling something")]
         public float GrapplingGravity = 0.1f;
+
+        [Header("HYPER FOCUS")]
+        [Tooltip("Allows the player to see invisible walls")]
+        public bool AllowHyperFocus = true;
 
         [Header("COLLISIONS")]
         [Tooltip("Set this to the layer your player is on")]

@@ -11,6 +11,7 @@ namespace TarodevController
 
         private Transform _currentScreen; // Tela atual
         private bool _isTransitioning; // Se a câmera está em transição
+        private bool _isShaking = false; // Se o shake está ativo
 
         private void Start()
         {
@@ -29,7 +30,7 @@ namespace TarodevController
 
         private void Update()
         {
-            if (!_player || _isTransitioning) return;
+            if (!_player || _isTransitioning || _isShaking) return;
 
             // Verificar se o jogador saiu dos limites da tela atual
             if (!IsPlayerWithinBounds(_currentScreen))
@@ -46,6 +47,16 @@ namespace TarodevController
             );
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * _transitionSpeed);
+        }
+
+        public void DisableCameraMovement()
+        {
+            _isShaking = true; // Desativa a movimentação da câmera durante o shake
+        }
+
+        public void EnableCameraMovement()
+        {
+            _isShaking = false; // Restaura a movimentação da câmera
         }
 
         private void ChangeToNextScreen()
@@ -119,4 +130,5 @@ namespace TarodevController
             return Camera.main.orthographicSize;
         }
     }
+
 }

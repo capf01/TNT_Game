@@ -37,7 +37,7 @@ namespace TarodevController {
         }
 
         private void HandleSpriteFlipping() {
-            if (_player.ClimbingLedge) return;
+            if (_player.ClimbingLedge || _playerController._isDead) return;
             if (_player.WallDirection != 0) _renderer.flipX = _player.WallDirection == -1;
             else if (Mathf.Abs(_player.Input.x) > 0.1f) _renderer.flipX = _player.Input.x < 0;
 
@@ -254,6 +254,7 @@ namespace TarodevController {
             int GetState() {
                 if (Time.time < _lockedTill) return _currentState;
 
+                if (!_playerController._isDead) {
                 if (_isLedgeClimbing) return LockState(LedgeClimb, _player.PlayerStats.LedgeClimbDuration);
                 if (_attacked) return LockState(Attack, _attackAnimTime);
                 if (_player.ClimbingLadder) return _player.Speed.y == 0 ? ClimbIdle : Climb;
@@ -275,9 +276,11 @@ namespace TarodevController {
                 if (_grounded) return _player.Input.x == 0 ? Idle : Walk;
                 if (_player.Speed.y > 0 && _playerController._airJumpsRemaining != 0) return (_wallJumped) ? Backflip : Jump;
                 if (_player.Speed.y > 0 && _playerController._airJumpsRemaining == 0) return DoubleJump;
+                }
+                if (_playerController._isDead) return Damage;
+
                 return _dismountedWall ? LockState(WallDismount, 0.167f) : Fall;
                 // TODO: determine if WallDismount looks good enough to use. Looks off to me. If it's fine, add clip duration (0.167f) to Stats
-
                 int LockState(int s, float t) {
                     _lockedTill = Time.time + t;
                     return s;
@@ -323,6 +326,8 @@ namespace TarodevController {
         private static readonly int LedgeClimb = Animator.StringToHash("LedgeClimb");
 
         private static readonly int Attack = Animator.StringToHash("Attack");
+
+        private static readonly int Damage = Animator.StringToHash("Damage");
         #endregion
 
         #endregion
@@ -363,17 +368,24 @@ namespace TarodevController {
 
         [Header("TRIGGER")]
         [SerializeField] private AudioClip _pickupItem;
+        [SerializeField] private AudioClip _collectable;
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            CheckpointFlag s = collision.GetComponent<CheckpointFlag>();
+
             if (collision.gameObject.layer == LayerMask.NameToLayer("TNT"))
             {
                 PlaySound(_pickupItem, 0.1f, 1.3f);
             }
 
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Flag"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Flag") && !s.isActivated)
             {
-                Debug.Log("Flag");
-                PlaySound(_pickupItem, 0.1f, 2f);
+                PlaySound(_pickupItem, 0.1f, 4f);
+            }
+
+            if (collision.CompareTag("Collectable"))
+            {
+                PlaySound(_collectable, 0.1f, 1.2f);
             }
         }
         #endregion

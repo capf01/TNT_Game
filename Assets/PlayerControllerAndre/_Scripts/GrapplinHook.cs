@@ -48,8 +48,9 @@ public class GrapplinHook : MonoBehaviour
         // Visualização do Raycast no editor
         Debug.DrawRay(rayOrigin, rayDirection * grappleLength, Color.red);
 
-        if (Input.GetKeyDown(KeyCode.Delete))
+        if (_playerController._frameInput.AttackDown)
         {
+            Debug.Log("Funcionou");
             // Realiza o Raycast na direção calculada
             RaycastHit2D hit = Physics2D.Raycast(origin: rayOrigin, direction: rayDirection, distance: grappleLength, layerMask: grappleLayer);
 
@@ -74,7 +75,7 @@ public class GrapplinHook : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Delete))
+        if (_playerController._frameInput.AttackUp)
         {
             joint.enabled = false;
             rope.enabled = false;
