@@ -3778,11 +3778,11 @@ Transform:
   m_GameObject: {fileID: 895355818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1000061, y: 4.299999, z: -19.369}
-  m_LocalScale: {x: 2.2330348, y: 2.187923, z: 1.8044729}
+  m_LocalPosition: {x: -47.6, y: 61.989998, z: -19.369}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1880753186}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &895355820
 MonoBehaviour:
@@ -3796,9 +3796,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08684f925c3762048ac96c9d60b32289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _screenBounds: []
-  _transitionSpeed: 2
+  _player: {fileID: 1880753186}
+  _smoothTime: 0.5
+  _minX: -320
+  _maxX: 47
 --- !u!114 &895355821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,7 +3887,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.129116
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6512,10 +6513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2082634428721987330, guid: 01798ff11d47c724babdd35c0de2b753, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 895355819}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01798ff11d47c724babdd35c0de2b753, type: 3}
 --- !u!4 &1880753186 stripped
@@ -7431,6 +7429,7 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 895355819}
   - {fileID: 190431248}
   - {fileID: 1880753185}
   - {fileID: 1171027975}
