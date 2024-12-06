@@ -8,6 +8,8 @@ TagManager:
   - FalseWall
   - FinishLine
   - PontoDeSpawn
+  - Urbano
+  - Carregavel
   layers:
   - Default
   - TransparentFX
