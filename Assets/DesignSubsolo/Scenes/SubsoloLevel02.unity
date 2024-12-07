@@ -122183,7 +122183,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 600, y: 100}
+  m_Size: {x: 600, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -122198,8 +122198,8 @@ Transform:
   m_GameObject: {fileID: 751768833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 110.3, y: -34.6, z: 0.12680162}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 193.8, y: -26.3, z: 0.12680162}
+  m_LocalScale: {x: 1.822, y: 1.822, z: 1.822}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1751471674}
@@ -124912,6 +124912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751471674}
+  - component: {fileID: 1751471675}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -124935,6 +124936,21 @@ Transform:
   - {fileID: 751768835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751471675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751471673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccddf1c64172f44597d60cc94552ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosDeFundo:
+  - {fileID: 751768835}
+  intensidadeParallax: 0.5
 --- !u!1 &1885859351
 GameObject:
   m_ObjectHideFlags: 0
