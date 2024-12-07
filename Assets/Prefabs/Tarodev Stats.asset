@@ -44,7 +44,7 @@ MonoBehaviour:
   SnapToLadders: 1
   LadderLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   LadderSnapSpeed: 0.05
   LadderShimmySpeedMultiplier: 0.5
   LadderClimbSpeed: 8
