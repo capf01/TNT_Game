@@ -8,6 +8,7 @@ namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class PlayerController : MonoBehaviour, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
+        [SerializeField] private GameManager _gameManager;
 
         #region Internal
 
@@ -16,13 +17,20 @@ namespace TarodevController {
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
         private PlayerInput _input;
+        private GrapplinHook _hook;
+        private HyperFocus _hyperFocus;
+        public bool _isDead;
         private bool _cachedTriggerSetting;
 
-        private FrameInput _frameInput;
+        public FrameInput _frameInput;
         private Vector2 _speed;
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        public bool _downStairs;
+        public bool _isCrouching;
+        public bool _grappling;
+        public float _grapplingGravity;
 
         #endregion
 
@@ -65,10 +73,13 @@ namespace TarodevController {
         protected virtual void Awake() {
             _rb = GetComponent<Rigidbody2D>();
             _input = GetComponent<PlayerInput>();
+            _hook = GetComponent<GrapplinHook>();
+            _hyperFocus = GetComponent<HyperFocus>();
             _cachedTriggerSetting = Physics2D.queriesHitTriggers;
             Physics2D.queriesStartInColliders = false;
 
             ToggleColliders(isStanding: true);
+            ResetStats();
         }
 
         protected virtual void Update() {
@@ -85,26 +96,48 @@ namespace TarodevController {
 
             if (_frameInput.DashDown && _stats.AllowDash) _dashToConsume = true;
             if (_frameInput.AttackDown && _stats.AllowAttacks) _attackToConsume = true;
+
+            if (_frameInput.Move.y == -1) _isCrouching = true;
+            else _isCrouching = false;
+            HyperFocus();
         }
 
         protected virtual void FixedUpdate() {
             _fixedFrame++;
 
-            CheckCollisions();
-            HandleCollisions();
-            HandleWalls();
-            HandleLedges();
-            HandleLadders();
-            
-            HandleCrouching();
-            HandleJump();
-            HandleDash();
-            HandleAttacking();
-            
-            HandleHorizontal();
-            HandleVertical();
-            ApplyVelocity();
+            if (!_isDead)
+            {
+                CheckCollisions();
+                HandleCollisions();
+                HandleWalls();
+                HandleLedges();
+                HandleLadders();
+
+                HandleCrouching();
+                HandleJump();
+                HandleDash();
+                HandleAttacking();
+                HandleGrapplingHook();
+                
+
+                HandleHorizontal();
+                HandleVertical();
+                ApplyVelocity();
+            }
         }
+
+        #region Stats
+
+        private void ResetStats()
+        {
+            _stats.AllowDoubleJump = false;
+            _stats.AllowDash = false;
+            _stats.AllowAttacks = false;
+            _stats.AllowGrapplingHook = false;
+            _stats.AllowHyperFocus = false;
+        }
+
+        #endregion
 
         #region Collisions
 
@@ -165,6 +198,15 @@ namespace TarodevController {
                 _grounded = false;
                 _frameLeftGrounded = _fixedFrame;
                 GroundedChanged?.Invoke(false, 0);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Death"))
+            {
+                Debug.Log("Espinho");
+                Death();
             }
         }
 
@@ -319,7 +361,7 @@ namespace TarodevController {
         protected virtual bool CrouchPressed => _frameInput.Move.y < -_stats.VerticalDeadzoneThreshold;
 
         protected virtual void HandleCrouching() {
-            if (!_stats.AllowCrouching) return;
+            if (!_stats.AllowCrouching || _downStairs) return;
 
             if (_crouching && _onLadder) ToggleCrouching(false); // use standing collider when on ladder
             if (_crouching != CrouchPressed) ToggleCrouching(!_crouching);
@@ -352,7 +394,6 @@ namespace TarodevController {
         #endregion
 
         #region Jumping
-
         private bool _jumpToConsume;
         private bool _endedJumpEarly;
         private bool _coyoteUsable;
@@ -368,7 +409,7 @@ namespace TarodevController {
             if (_jumpToConsume || HasBufferedJump) {
                 if (_isOnWall && !_isLeavingWall) WallJump();
                 else if (_grounded || _onLadder || CanUseCoyote) NormalJump();
-                else if (_jumpToConsume && CanAirJump) AirJump();
+                else if (_jumpToConsume && CanAirJump && _stats.AllowDoubleJump) AirJump();
             }
             
             _jumpToConsume = false; // Always consume the flag
@@ -476,6 +517,27 @@ namespace TarodevController {
 
         #endregion
 
+        #region Grappling Hook
+
+        private void HandleGrapplingHook()
+        {
+            if (_stats.AllowGrapplingHook) _hook.enabled = true;
+            else _hook.enabled = false;
+        }
+
+        #endregion
+
+        #region HYPER FOCUS
+        public void HyperFocus()
+        {
+            if (_stats.AllowHyperFocus && _frameInput.AttackDown)
+            {
+                _hyperFocus._hyperFocusOn = !_hyperFocus._hyperFocusOn; // Alterna o estado de _hyperFocusOn
+            }
+        }
+
+        #endregion
+
         #region Horizontal
 
         protected virtual void HandleHorizontal() {
@@ -533,11 +595,63 @@ namespace TarodevController {
                 else if (_grabbingLedge) _speed.y = Mathf.MoveTowards(_speed.y, 0, _stats.LedgeGrabDeceleration * Time.fixedDeltaTime);
                 else _speed.y = Mathf.MoveTowards(Mathf.Min(_speed.y, 0), -_stats.MaxWallFallSpeed, _stats.WallFallAcceleration * Time.fixedDeltaTime);
             }
+            else if (_grappling)
+            {
+                _stats.FallAcceleration = _stats.GrapplingGravity;
+                _stats.MaxSpeed = 20;
+            }
+
             // In Air
             else {
                 var inAirGravity = _stats.FallAcceleration;
                 if (_endedJumpEarly && _speed.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
                 _speed.y = Mathf.MoveTowards(_speed.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
+
+                _stats.FallAcceleration = 60;
+                _stats.MaxSpeed = 6;
+            }
+        }
+
+        #endregion
+
+        #region Death
+
+        [SerializeField] private GameObject deathEffectPrefab;
+        private void Death()
+        {
+            if (!_isDead)
+            {
+                _rb.velocity = Vector3.zero;
+                _isDead = true;
+                Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+                StartCoroutine(DeathCoroutine());
+            }
+        }
+
+        IEnumerator DeathCoroutine()
+        {
+            _gameManager.TriggerShake();
+            yield return new WaitForSeconds(1);
+            _gameManager.StartScreenTransition(1);
+            yield return new WaitForSeconds(0.7f);
+            PlayerRespawn();
+            _isDead = false;
+        }
+
+        #endregion
+
+        #region Respawn
+        public Vector3 _checkpoint;
+        public void PlayerRespawn()
+        {
+            // Teleporta o jogador para a posição do checkpoint
+            transform.position = _checkpoint;
+
+            // Caso esteja usando um Rigidbody2D, zerar a velocidade para evitar movimentos indesejados
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero; // Zera a velocidade do Rigidbody
             }
         }
 

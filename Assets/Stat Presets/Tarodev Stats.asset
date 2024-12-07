@@ -23,6 +23,7 @@ MonoBehaviour:
   CrouchSpeedPenalty: 0.5
   CrouchSlowdownFrames: 50
   CrouchBufferCheck: 0.1
+  AllowDoubleJump: 0
   MaxAirJumps: 1
   JumpPower: 23
   MaxFallSpeed: 25
@@ -35,20 +36,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   RequireInputPush: 0
-  WallClimbSpeed: 5
-  WallFallAcceleration: 8
-  MaxWallFallSpeed: 15
-  WallJumpPower: {x: 30, y: 25}
+  WallClimbSpeed: 4
+  WallFallAcceleration: 5
+  MaxWallFallSpeed: 10
+  WallJumpPower: {x: 15, y: 20}
   WallJumpInputLossFrames: 18
   AllowLadders: 1
   SnapToLadders: 1
   LadderLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2048
   LadderSnapSpeed: 0.05
   LadderShimmySpeedMultiplier: 0.5
-  LadderClimbSpeed: 8
-  LadderSlideSpeed: 12
+  LadderClimbSpeed: 5
+  LadderSlideSpeed: 7
   LadderCooldownFrames: 8
   AllowLedges: 1
   LedgeGrabDeceleration: 4
@@ -56,12 +57,15 @@ MonoBehaviour:
   StandUpOffset: {x: 0.19, y: 0}
   LedgeRaycastSpacing: 0.3
   LedgeClimbDuration: 0.5
-  AllowDash: 1
+  AllowDash: 0
   DashVelocity: 17.9
-  DashDurationFrames: 13
+  DashDurationFrames: 18
   DashEndHorizontalMultiplier: 0.25
   AllowAttacks: 0
   AttackFrameCooldown: 15
+  AllowGrapplingHook: 0
+  GrapplingGravity: 0.1
+  AllowHyperFocus: 1
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -1,4 +1,4 @@
-  using UnityEngine;
+using UnityEngine;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -12,7 +12,7 @@ namespace TarodevController {
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInputActions _actions;
-        private InputAction _move, _jump, _dash, _attack;
+        private InputAction _move, _jump, _dash, _attack, _attackUp;
 
         private void Awake() {
             _actions = new PlayerInputActions();
@@ -20,6 +20,7 @@ namespace TarodevController {
             _jump = _actions.Player.Jump;
             _dash = _actions.Player.Dash;
             _attack = _actions.Player.Attack;
+            _attackUp = _actions.Player.Attack;
         }
 
         private void OnEnable() => _actions.Enable();
@@ -32,6 +33,7 @@ namespace TarodevController {
                 JumpHeld = _jump.IsPressed(),
                 DashDown = _dash.WasPressedThisFrame(),
                 AttackDown = _attack.WasPressedThisFrame(),
+                AttackUp = _attackUp.WasReleasedThisFrame(),
                 Move = _move.ReadValue<Vector2>()
             };
         }
@@ -43,6 +45,7 @@ namespace TarodevController {
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
                 DashDown = Input.GetKeyDown(KeyCode.X),
                 AttackDown = Input.GetKeyDown(KeyCode.Z),
+                AttackUp = Input.GetKeyUp(KeyCode.Z),
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
             };
         }
@@ -55,5 +58,6 @@ namespace TarodevController {
         public bool JumpHeld;
         public bool DashDown;
         public bool AttackDown;
+        public bool AttackUp;
     }
 }
