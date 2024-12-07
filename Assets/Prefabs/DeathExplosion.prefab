@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 570501436547810704}
-  - component: {fileID: 14820901599980646}
-  - component: {fileID: 6775088506127407500}
+  - component: {fileID: 2449515128503207208}
+  - component: {fileID: 6328982910918036451}
   - component: {fileID: 4418876443436142619}
   m_Layer: 0
   m_Name: DeathExplosion
@@ -42,7 +42,7 @@ Transform:
   - {fileID: 7575953043564118322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &14820901599980646
+--- !u!114 &2449515128503207208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,23 +51,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 82646542570724934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61c259c33ea13346b059a9af51d5fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 81bb00627885a7f41a6948d78d5c4a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToMove:
-  - {fileID: 1451180332683412268}
-  - {fileID: 3202117300764220822}
-  - {fileID: 711297598135302223}
-  - {fileID: 7105174451984663530}
-  - {fileID: 8422956576786463227}
-  - {fileID: 460346444176118372}
-  - {fileID: 1317816873593044830}
-  - {fileID: 977981126031494499}
+  objectsToMove: []
   explosionDistance: 2.3
   moveSpeed: 7
   explosionDuration: 3
   isExploding: 1
---- !u!114 &6775088506127407500
+--- !u!114 &6328982910918036451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 82646542570724934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4179990813805404eb7dec79d1b470b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 05573227d5341c1448593974e80a32c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: -50
@@ -186,7 +178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 153828589060068009}
   - component: {fileID: 8796201473454516214}
-  - component: {fileID: 5773832105534925250}
   m_Layer: 0
   m_Name: PlayerDeath_0 (5)
   m_TagString: Untagged
@@ -261,33 +252,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5773832105534925250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460346444176118372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &711297598135302223
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2732643455411537436}
   - component: {fileID: 7565027488789618235}
-  - component: {fileID: 4472325199864167658}
   m_Layer: 0
   m_Name: PlayerDeath_0 (2)
   m_TagString: Untagged
@@ -373,33 +336,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4472325199864167658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711297598135302223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &977981126031494499
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +346,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7575953043564118322}
   - component: {fileID: 8233986689922726842}
-  - component: {fileID: 3096721519739347948}
   m_Layer: 0
   m_Name: PlayerDeath_0 (7)
   m_TagString: Untagged
@@ -485,33 +420,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3096721519739347948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977981126031494499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &1317816873593044830
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +430,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3700836526225347878}
   - component: {fileID: 3025691751355424115}
-  - component: {fileID: 2650497151611260487}
   m_Layer: 0
   m_Name: PlayerDeath_0 (6)
   m_TagString: Untagged
@@ -597,33 +504,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2650497151611260487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317816873593044830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &1451180332683412268
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1967079466686288006}
   - component: {fileID: 5900012920048459470}
-  - component: {fileID: 5026632405826096788}
   m_Layer: 0
   m_Name: PlayerDeath_0
   m_TagString: Untagged
@@ -709,33 +588,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5026632405826096788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451180332683412268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &3202117300764220822
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +598,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7333507565825161092}
   - component: {fileID: 7484366425458978140}
-  - component: {fileID: 7281006932334712776}
   m_Layer: 0
   m_Name: PlayerDeath_0 (1)
   m_TagString: Untagged
@@ -821,33 +672,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7281006932334712776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202117300764220822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &7105174451984663530
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +682,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6103321130777470315}
   - component: {fileID: 8735088465380748595}
-  - component: {fileID: 760357502784860697}
   m_Layer: 0
   m_Name: PlayerDeath_0 (3)
   m_TagString: Untagged
@@ -933,33 +756,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &760357502784860697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7105174451984663530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05
 --- !u!1 &8422956576786463227
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +766,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6710432697940428027}
   - component: {fileID: 1659200380438638734}
-  - component: {fileID: 6572978690115256010}
   m_Layer: 0
   m_Name: PlayerDeath_0 (4)
   m_TagString: Untagged
@@ -1045,30 +840,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6572978690115256010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422956576786463227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7bdaaa314deed459a417c61caf88f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleSprites:
-  - {fileID: 1986428886, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -987201989, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  idleSwitchInterval: 0.1
-  idleDuration: 0.8
-  animationSprites:
-  - {fileID: 767709783, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 243477727, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -582532815, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1181626091, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -1370570702, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: 1640412483, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -2048705741, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  - {fileID: -457734018, guid: b9552b98e765bb24d8b1256ea3afff74, type: 3}
-  animationFrameInterval: 0.05

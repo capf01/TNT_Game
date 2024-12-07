@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 5960436092562584392}
   - component: {fileID: 221366539418906909}
   - component: {fileID: 3758311685176973102}
-  - component: {fileID: 4074698462176906301}
   m_Layer: 10
   m_Name: One Way Platform (1)
   m_TagString: Untagged
@@ -282,15 +281,3 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &4074698462176906301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145475736542278303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017fe2a8512d9824fb8a91604e4b37df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
