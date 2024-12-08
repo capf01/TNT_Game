@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: fc35b8787b6210843adca47ac7ab9c32
+<<<<<<<< Updated upstream:Assets/PlayerControllerAndre/_Scripts/CheckpointFlag.cs.meta
+guid: 0076fb320945edd4dbd22d60ea91c979
+========
+guid: 9311278482e99664daa8100aea0e20f1
+>>>>>>>> Stashed changes:Assets/PlayerControllerAndre/_Scripts/FloatEffect.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

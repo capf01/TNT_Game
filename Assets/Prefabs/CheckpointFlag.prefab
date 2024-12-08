@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 3384507952976478800}
   - component: {fileID: 8192506450556184088}
   - component: {fileID: 7703485102857498285}
-  - component: {fileID: 3436946984537122325}
+  - component: {fileID: 2058456742901113260}
   m_Layer: 8
   m_Name: CheckpointFlag
   m_TagString: Untagged
@@ -5020,7 +5020,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27671814, y: 2.4}
   m_EdgeRadius: 0
---- !u!114 &3436946984537122325
+--- !u!114 &2058456742901113260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5029,7 +5029,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5616840121830947835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc35b8787b6210843adca47ac7ab9c32, type: 3}
+  m_Script: {fileID: 11500000, guid: 0076fb320945edd4dbd22d60ea91c979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activatedSprite: {fileID: -707422569, guid: 81766074d98e86d44a6076d3ab519086, type: 3}
