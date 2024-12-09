@@ -8,6 +8,8 @@ TagManager:
   - FalseWall
   - FinishLine
   - PontoDeSpawn
+  - Attack
+  - Ice
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Wall
   - Ladder
   - Player
-  - 
+  - dead
   - 
   - 
   - 
