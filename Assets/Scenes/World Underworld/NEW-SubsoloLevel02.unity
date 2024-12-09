@@ -123717,9 +123717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 553413667}
-  _smoothTime: 0.7
-  _minX: -266
-  _maxX: 29
+  _screenBounds: []
+  _transitionSpeed: 2
 --- !u!81 &1430295650
 AudioListener:
   m_ObjectHideFlags: 0
@@ -124945,7 +124944,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751471673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ccddf1c64172f44597d60cc94552ce8, type: 3}
+  m_Script: {fileID: 11500000, guid: f408d8a1d00e1124580be7443419f358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objetosDeFundo:
