@@ -45,7 +45,7 @@ MonoBehaviour:
   SnapToLadders: 1
   LadderLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
   LadderSnapSpeed: 0.05
   LadderShimmySpeedMultiplier: 0.5
   LadderClimbSpeed: 5
@@ -65,7 +65,7 @@ MonoBehaviour:
   AttackFrameCooldown: 15
   AllowGrapplingHook: 0
   GrapplingGravity: 0.1
-  AllowHyperFocus: 1
+  AllowHyperFocus: 0
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0
