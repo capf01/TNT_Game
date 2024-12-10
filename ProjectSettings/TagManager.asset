@@ -10,6 +10,13 @@ TagManager:
   - PontoDeSpawn
   - Attack
   - Ice
+  - Mango
+  - Original
+  - Acai
+  - Zero
+  - Collectable
+  - PinkLemonade
+  - Urbano
   layers:
   - Default
   - TransparentFX
@@ -20,7 +27,7 @@ TagManager:
   - Wall
   - Ladder
   - Player
-  - dead
+  - Death
   - 
   - 
   - 
