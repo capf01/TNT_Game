@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 111c288aeb7c11f40a378ae28d772168
+guid: ac3cca65401866d48add593e64f7df67
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,12 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lava_0
+      name: pedras2_0
       rect:
         serializedVersion: 2
-        x: 192
-        y: 224
-        width: 32
+        x: 1
+        y: 96
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 888bc9c1c8525344682ffefeb1819b6e
-      internalID: 2048853617
+      spriteID: 3c922b4242089bb469d4e65219fc99a8
+      internalID: -1808033364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_1
+      name: pedras2_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 224
+        x: 96
+        y: 96
         width: 32
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,18 +132,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c8f979059015bd488630ab9106a196e
-      internalID: 840864874
+      spriteID: 2e07f5bd54d57934bafe5d0d2536d160
+      internalID: -1937288342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_2
+      name: pedras2_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
+        x: 0
+        y: 48
         width: 32
         height: 32
       alignment: 0
@@ -153,18 +153,60 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079917734aba064448458f6545f68f29
-      internalID: -718661164
+      spriteID: 3209fb2b0b61470488bcd7214bb52402
+      internalID: 1713349779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_3
+      name: pedras2_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 192
+        x: 96
+        y: 48
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c43681597e5cb843b846e889f9cfdee
+      internalID: -1502527829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pedras2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fc9650e6c315840848432d4e72d63d
+      internalID: 594185535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pedras2_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -174,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 095a1d564dafc39449f074e77cb73007
-      internalID: -2100177561
+      spriteID: 2441e4a505206f34fa6622fe0376ddcc
+      internalID: -577559047
       vertices: []
       indices: 
       edges: []
@@ -191,10 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lava_0: 2048853617
-      lava_1: 840864874
-      lava_2: -718661164
-      lava_3: -2100177561
+      pedras2_0: -1808033364
+      pedras2_1: -1937288342
+      pedras2_2: 1713349779
+      pedras2_3: -1502527829
+      pedras2_4: 594185535
+      pedras2_5: -577559047
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

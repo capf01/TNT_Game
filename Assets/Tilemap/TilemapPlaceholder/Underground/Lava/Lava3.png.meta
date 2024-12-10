@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 111c288aeb7c11f40a378ae28d772168
+guid: 09a89f676cd9fa8478f4283c6d7c6065
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lava_0
+      name: Lava3_0
       rect:
         serializedVersion: 2
-        x: 192
-        y: 224
+        x: 96
+        y: 96
         width: 32
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,18 +111,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 888bc9c1c8525344682ffefeb1819b6e
-      internalID: 2048853617
+      spriteID: 75218ba61a82e3241bf68964826eadb8
+      internalID: -2086529665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_1
+      name: Lava3_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 224
+        x: 48
+        y: 48
         width: 32
         height: 32
       alignment: 0
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c8f979059015bd488630ab9106a196e
-      internalID: 840864874
+      spriteID: b7f7ce43344694646b77c820f428c81c
+      internalID: -1163436163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_2
+      name: Lava3_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
+        x: 0
+        y: 0
         width: 32
-        height: 32
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,18 +153,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079917734aba064448458f6545f68f29
-      internalID: -718661164
+      spriteID: 37d976aea29dcc24b8feb207cdf761ca
+      internalID: -1070568202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lava_3
+      name: Lava3_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 192
+        x: 48
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 095a1d564dafc39449f074e77cb73007
-      internalID: -2100177561
+      spriteID: 5d75ba23700808c4b817f30562811a4d
+      internalID: -433095305
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lava_0: 2048853617
-      lava_1: 840864874
-      lava_2: -718661164
-      lava_3: -2100177561
+      Lava3_0: -2086529665
+      Lava3_1: -1163436163
+      Lava3_2: -1070568202
+      Lava3_3: -433095305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
