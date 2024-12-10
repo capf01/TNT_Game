@@ -15,8 +15,7 @@ public class DisappearingPlatform : MonoBehaviour
 
         if (platformCollider == null || platformRenderer == null)
         {
-            Debug.LogError("A plataforma precisa ter um SpriteRenderer e um Collider2D anexados.");
-            return;
+             return;
         }
 
         StartCoroutine(ToggleVisibility());
