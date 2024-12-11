@@ -27600,7 +27600,7 @@ MonoBehaviour:
   - {fileID: 115489100}
   - {fileID: 1084937136}
   - {fileID: 1351189324}
-  intensidadeParallax: 0.5
+  intensidadeParallax: 0.2
 --- !u!4 &1554485552
 Transform:
   m_ObjectHideFlags: 0
@@ -27610,9 +27610,9 @@ Transform:
   m_GameObject: {fileID: 1554485550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -990.2, y: 150.2, z: -0.48417}
-  m_LocalScale: {x: 3.8183901, y: 3.8183901, z: 3.8183901}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -577.8, y: 88.8, z: -0.48417}
+  m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1571977110}
   - {fileID: 1242380287}
