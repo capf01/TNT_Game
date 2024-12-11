@@ -766,7 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.7
 --- !u!19719996 &73602668
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -4121,6 +4120,9 @@ GameObject:
   m_Component:
   - component: {fileID: 416421542}
   - component: {fileID: 416421543}
+  - component: {fileID: 416421546}
+  - component: {fileID: 416421545}
+  - component: {fileID: 416421544}
   m_Layer: 0
   m_Name: Art1
   m_TagString: Untagged
@@ -4138,7 +4140,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1289354059}
@@ -4184,7 +4186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e120fd5e76960cb48972404284961441, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1102a31da52f52a40abbd5f72ac0552e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4195,6 +4197,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &416421544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416421541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179990813805404eb7dec79d1b470b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 12
+--- !u!114 &416421545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416421541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c692e6c1aa14c5a429c03d6cecbd628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 0}
+  originalSprite: {fileID: 0}
+  mangoSprite: {fileID: 0}
+  zeroSprite: {fileID: 0}
+  focusSprite: {fileID: 0}
+  acaiSprite: {fileID: 0}
+  _debugText: {fileID: 0}
+  getItemSound: {fileID: 0}
+  playerController: {fileID: 0}
+  taroDevStats: {fileID: 0}
+  powerFocusPinkLemonade: {fileID: 0}
+  collectableParticles: {fileID: 0}
+--- !u!114 &416421546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416421541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311278482e99664daa8100aea0e20f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altura: 0.5
+  velocidade: 2
 --- !u!1 &420736881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5227,7 +5280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 2
 --- !u!50 &521045862
 Rigidbody2D:
   serializedVersion: 4
@@ -7761,7 +7813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.7
 --- !u!483693784 &653454363
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -12110,7 +12161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.7
 --- !u!1 &1147288515
 GameObject:
   m_ObjectHideFlags: 0
@@ -13683,6 +13733,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1280854977}
   - component: {fileID: 1280854976}
+  - component: {fileID: 1280854980}
+  - component: {fileID: 1280854979}
+  - component: {fileID: 1280854978}
   m_Layer: 0
   m_Name: Art3
   m_TagString: Untagged
@@ -13731,7 +13784,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 65ab9ff5a92f2084cb4a07ff4a9839f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e72ab46017fb52479be1a7fae7dbb9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13750,13 +13803,64 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280854975}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 327.1638, y: -22.507605, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 345.54715, y: -8.980872, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1289354059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280854978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280854975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179990813805404eb7dec79d1b470b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 30
+--- !u!114 &1280854979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280854975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c692e6c1aa14c5a429c03d6cecbd628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 0}
+  originalSprite: {fileID: 0}
+  mangoSprite: {fileID: 0}
+  zeroSprite: {fileID: 0}
+  focusSprite: {fileID: 0}
+  acaiSprite: {fileID: 0}
+  _debugText: {fileID: 0}
+  getItemSound: {fileID: 0}
+  playerController: {fileID: 0}
+  taroDevStats: {fileID: 0}
+  powerFocusPinkLemonade: {fileID: 0}
+  collectableParticles: {fileID: 0}
+--- !u!114 &1280854980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280854975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311278482e99664daa8100aea0e20f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altura: 0.5
+  velocidade: 2
 --- !u!1 &1283685871
 GameObject:
   m_ObjectHideFlags: 0
@@ -13897,6 +14001,7 @@ Transform:
   m_Children:
   - {fileID: 1787226590}
   - {fileID: 416421542}
+  - {fileID: 1280854977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320553185
@@ -14884,7 +14989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.4
 --- !u!50 &1373898961
 Rigidbody2D:
   serializedVersion: 4
@@ -16344,7 +16448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.7
 --- !u!483693784 &1408158347
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -145712,6 +145815,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1787226590}
   - component: {fileID: 1787226591}
+  - component: {fileID: 1787226594}
+  - component: {fileID: 1787226593}
+  - component: {fileID: 1787226592}
   m_Layer: 0
   m_Name: Art2
   m_TagString: Untagged
@@ -145729,7 +145835,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 83.9, y: 48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1289354059}
@@ -145775,7 +145881,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3247d906e87d7d542b538263fb90fd3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 831bc40997d503b49b7339f7b918ae20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145786,6 +145892,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1787226592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787226589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179990813805404eb7dec79d1b470b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 23
+--- !u!114 &1787226593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787226589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c692e6c1aa14c5a429c03d6cecbd628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 0}
+  originalSprite: {fileID: 0}
+  mangoSprite: {fileID: 0}
+  zeroSprite: {fileID: 0}
+  focusSprite: {fileID: 0}
+  acaiSprite: {fileID: 0}
+  _debugText: {fileID: 0}
+  getItemSound: {fileID: 0}
+  playerController: {fileID: 0}
+  taroDevStats: {fileID: 0}
+  powerFocusPinkLemonade: {fileID: 0}
+  collectableParticles: {fileID: 0}
+--- !u!114 &1787226594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787226589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9311278482e99664daa8100aea0e20f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altura: 0.5
+  velocidade: 2
 --- !u!1 &1793386889
 GameObject:
   m_ObjectHideFlags: 0
@@ -147576,7 +147733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 0.7
 --- !u!483693784 &1950305023
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -148663,7 +148819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa0f3bcba2f3e04c85a6569c07f4d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeFalling: 2
 --- !u!50 &2044243503
 Rigidbody2D:
   serializedVersion: 4
@@ -149945,4 +150100,3 @@ SceneRoots:
   - {fileID: 1614862074}
   - {fileID: 1289354059}
   - {fileID: 753421265}
-  - {fileID: 1280854977}

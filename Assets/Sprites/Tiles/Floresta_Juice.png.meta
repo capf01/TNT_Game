@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc4ea910bb2da544bbfb50863d1755b8
+guid: 1d4d1b53d5903444998904b68c282620
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 811b70531fd84bc46817391def6fa889
-      internalID: 1549322473
+      spriteID: 7a08133e70ffcc64db4fe2d25c510c81
+      internalID: -2029335560
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faf3eef1b62ac804db2cc3329f7d2585
-      internalID: -1049725016
+      spriteID: d65506608bfe85f4897576bac5a3fb25
+      internalID: -1139573379
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bddb0859f4d6bf40b4f900a36fa62e1
-      internalID: 1999353435
+      spriteID: 19b4a662311ab5a438f6c247212d1f1f
+      internalID: -628416541
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b573edc81f3ef134bbbeb3dc5b399abf
-      internalID: 1752201468
+      spriteID: 841d8c6121234624896b51e2d4c31d90
+      internalID: -2075122001
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34352c8dfd192c4499a0f9815af8473c
-      internalID: -908241816
+      spriteID: a1591a5aa515e2a4ea14866cc057be9d
+      internalID: 1326166274
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 004eca3099ebd034bab48c83c7089552
-      internalID: -1440389782
+      spriteID: 8d37655b9ede47c46a1a27e35989d53f
+      internalID: 1640535210
       vertices: []
       indices: 
       edges: []
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca86ebcabe7071c4a8588055356cdf23
-      internalID: 283412030
+      spriteID: 5ec7ebc03b6f1f34f8e9dba68e7101c4
+      internalID: -1025630263
       vertices: []
       indices: 
       edges: []
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2917bdce11e58f4c8df005e8c3075a0
-      internalID: 116325148
+      spriteID: 6b8b0c3eafc4c17478677f7d2ce1ff2d
+      internalID: -630331499
       vertices: []
       indices: 
       edges: []
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fb5b593f86070e41be5216336bdaed9
-      internalID: -866643436
+      spriteID: 238dcd75239c5e7498145c1257899071
+      internalID: 588629096
       vertices: []
       indices: 
       edges: []
@@ -309,15 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Floresta_Juice_0: 1549322473
-      Floresta_Juice_1: -1049725016
-      Floresta_Juice_2: 1999353435
-      Floresta_Juice_3: 1752201468
-      Floresta_Juice_4: -908241816
-      Floresta_Juice_5: -1440389782
-      Floresta_Juice_6: 283412030
-      Floresta_Juice_7: 116325148
-      Floresta_Juice_8: -866643436
+      Floresta_Juice_0: -2029335560
+      Floresta_Juice_1: -1139573379
+      Floresta_Juice_2: -628416541
+      Floresta_Juice_3: -2075122001
+      Floresta_Juice_4: 1326166274
+      Floresta_Juice_5: 1640535210
+      Floresta_Juice_6: -1025630263
+      Floresta_Juice_7: -630331499
+      Floresta_Juice_8: 588629096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
