@@ -4682,8 +4682,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4770790341973597167, guid: b40b6e6e2e05204489773d99fd4439a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8153900344037976256, guid: b40b6e6e2e05204489773d99fd4439a4, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f3e4ac96e9fac84e96172956137e1c4, type: 2}
     - target: {fileID: 8163150519073852317, guid: b40b6e6e2e05204489773d99fd4439a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.23
@@ -10863,6 +10867,10 @@ PrefabInstance:
     - target: {fileID: 7366635219129710456, guid: b0e62ee1d2dd9bd4f9c30f93fecaad63, type: 3}
       propertyPath: m_Name
       value: PlayerTNT
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366635219129710456, guid: b0e62ee1d2dd9bd4f9c30f93fecaad63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366635219129710456, guid: b0e62ee1d2dd9bd4f9c30f93fecaad63, type: 3}
       propertyPath: m_TagString
@@ -145836,14 +145844,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740235656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc7c9121759c264ca9ef3f44ea68860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 8f3e4ac96e9fac84e96172956137e1c4, type: 2}
-  plataformDecelerationFactor: 0.2
-  plataformAcceleration: 70
+  plataformDecelerationFactor: 1
+  plataformAcceleration: 20
   plataformMaxSpeed: 7
 --- !u!1 &1755772031
 GameObject:
