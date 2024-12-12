@@ -11,6 +11,7 @@ public class HotbarButtonController : MonoBehaviour
     public Image selectedItem;
     private bool selected = false;
     public Sprite icon;
+    [SerializeField] private GameObject iconGO;
 
 
     // Start is called before the first frame update
@@ -25,14 +26,15 @@ public class HotbarButtonController : MonoBehaviour
         if (selected) 
         {
             selectedItem.sprite = icon;
-            itemText.text = itemName;
-
-        
+            if (iconGO.activeInHierarchy) itemText.text = itemName;
+            else itemText.text = "";
+            
         }
     }
 
     public void Selected()
     {
+        Debug.Log("Selected");
         selected = true;
         WheelHotbarController.weaponID = Id;
     }
@@ -45,9 +47,11 @@ public class HotbarButtonController : MonoBehaviour
 
     public void HoverEnter()
     {
+        Debug.Log("hover enter");
         anim.SetBool("Hover", true);
         itemText.text = itemName;
     }
+
     public void HoverExit()
     {
         anim.SetBool("Hover", false);

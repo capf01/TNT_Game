@@ -48,3 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sprites
+    uniqueID: 1988362931
+    locked: 0
+  - name: Canvas
+    uniqueID: 2826322887
+    locked: 0

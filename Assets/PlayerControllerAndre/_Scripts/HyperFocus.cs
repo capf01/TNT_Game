@@ -39,4 +39,9 @@ public class HyperFocus : MonoBehaviour
             targetLight2.intensity = Mathf.Lerp(0f, 1f, t);
         }
     }
+
+    public void DisableFocus()
+    {
+        _hyperFocusOn = false;
+    }
 }
