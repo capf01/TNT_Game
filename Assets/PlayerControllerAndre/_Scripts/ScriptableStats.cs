@@ -163,11 +163,6 @@ namespace TarodevController {
         [Tooltip("Allows the player to see invisible walls")]
         public bool AllowHyperFocus = true;
 
-        [Header("SKIN")]
-        [Tooltip("Skin Changer")]
-        public bool isWhite = true;
-        public bool isMan = true;
-
         [Header("COLLISIONS")]
         [Tooltip("Set this to the layer your player is on")]
         public LayerMask PlayerLayer;

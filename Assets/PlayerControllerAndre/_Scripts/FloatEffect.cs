@@ -6,18 +6,18 @@ public class FloatEffect : MonoBehaviour
     [SerializeField] private float altura = 0.5f; // Altura máxima de flutuação
     [SerializeField] private float velocidade = 2f; // Velocidade da flutuação
 
-    private Vector3 posicaoInicialLocal;
+    private Vector3 posicaoInicial;
 
     private void Start()
     {
-        // Armazena a posição inicial local do objeto
-        posicaoInicialLocal = transform.localPosition;
+        // Armazena a posição inicial do objeto
+        posicaoInicial = transform.position;
     }
 
     private void Update()
     {
-        // Calcula a nova posição local com base em uma onda seno
+        // Calcula a nova posição com base em uma onda seno
         float novaAltura = Mathf.Sin(Time.time * velocidade) * altura;
-        transform.localPosition = posicaoInicialLocal + new Vector3(0, novaAltura, 0);
+        transform.position = posicaoInicial + new Vector3(0, novaAltura, 0);
     }
 }

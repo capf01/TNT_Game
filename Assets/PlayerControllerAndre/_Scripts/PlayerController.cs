@@ -17,7 +17,6 @@ namespace TarodevController {
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
         private PlayerInput _input;
-        private SkinChanger _skinChanger;
         private GrapplinHook _hook;
         private HyperFocus _hyperFocus;
         public bool _isDead;
@@ -76,15 +75,11 @@ namespace TarodevController {
             _input = GetComponent<PlayerInput>();
             _hook = GetComponent<GrapplinHook>();
             _hyperFocus = GetComponent<HyperFocus>();
-            _skinChanger = GetComponentInChildren<SkinChanger>();
             _cachedTriggerSetting = Physics2D.queriesHitTriggers;
             Physics2D.queriesStartInColliders = false;
 
             ToggleColliders(isStanding: true);
             ResetStats();
-            _skinChanger.isWhite = _stats.isWhite;
-            _skinChanger.isMan = _stats.isMan;
-            _skinChanger.ApplyLibrary(3);
         }
 
         protected virtual void Update() {
@@ -135,7 +130,7 @@ namespace TarodevController {
 
         private void ResetStats()
         {
-            _stats.AllowDoubleJump = true;
+            _stats.AllowDoubleJump = false;
             _stats.AllowDash = false;
             _stats.AllowAttacks = false;
             _stats.AllowGrapplingHook = false;
@@ -157,9 +152,6 @@ namespace TarodevController {
         private int _ladderHitCount;
         private int _frameLeftGrounded = int.MinValue;
         private bool _grounded;
-
-        [SerializeField] private Vector2 _standingColliderOffset;
-        [SerializeField] private Vector2 _wallDetectorSize = new Vector2(1f, 1f);
 
         protected virtual void CheckCollisions() {
             Physics2D.queriesHitTriggers = false;
@@ -186,8 +178,8 @@ namespace TarodevController {
         }
 
         private Bounds GetWallDetectionBounds() {
-            var colliderOrigin = (Vector2)_rb.position + _standingColliderOffset;
-            return new Bounds(colliderOrigin, _wallDetectorSize);
+            var colliderOrigin = _rb.position + _standingCollider.offset;
+            return new Bounds(colliderOrigin, _stats.WallDetectorSize);
         }
 
         protected virtual void HandleCollisions() {
@@ -368,35 +360,20 @@ namespace TarodevController {
 
         protected virtual bool CrouchPressed => _frameInput.Move.y < -_stats.VerticalDeadzoneThreshold;
 
-        protected virtual void HandleCrouching()
-        {
+        protected virtual void HandleCrouching() {
             if (!_stats.AllowCrouching || _downStairs) return;
 
-            if (_crouching && _onLadder) ToggleCrouching(false); // usar o collider de pé na escada
+            if (_crouching && _onLadder) ToggleCrouching(false); // use standing collider when on ladder
             if (_crouching != CrouchPressed) ToggleCrouching(!_crouching);
-
-            if (_isCrouching && !_grounded)
-            {
-                Debug.Log("ALGO");
-                ToggleCrouching(false); // Levantar automaticamente ao pular
-            }
         }
 
-        protected virtual void ToggleCrouching(bool shouldCrouch)
-        {
-            // Impedir agachar se estiver escalando ou no ar
-            if (_isOnWall || (_onLadder && !_grounded)) return;
-
-            // Impedir levantar se há obstáculos acima
-            if ((_crouching && !CanStandUp())) return;
+        protected virtual void ToggleCrouching(bool shouldCrouch) {
+            if (!_crouching && (_isOnWall || (_onLadder && !_grounded))) return; // Prevent crouching if climbing
+            if (_crouching && !CanStandUp()) return; // Prevent standing into colliders
 
             _crouching = shouldCrouch;
             ToggleColliders(!shouldCrouch);
-
-            if (_crouching)
-            {
-                _frameStartedCrouching = _fixedFrame;
-            }
+            if (_crouching) _frameStartedCrouching = _fixedFrame;
         }
 
         protected virtual void ToggleColliders(bool isStanding) {
@@ -631,7 +608,7 @@ namespace TarodevController {
                 _speed.y = Mathf.MoveTowards(_speed.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
 
                 _stats.FallAcceleration = 60;
-                _stats.MaxSpeed = 7;
+                _stats.MaxSpeed = 6;
             }
         }
 
@@ -706,9 +683,6 @@ namespace TarodevController {
                 Gizmos.DrawRay(grabHeight + _stats.LedgeRaycastSpacing * Vector3.down, 0.5f * facingDir * Vector3.right);
                 Gizmos.DrawRay(grabHeight + _stats.LedgeRaycastSpacing * Vector3.up, 0.5f * facingDir * Vector3.right);
             }
-
-            //Gizmos.color = Color.red;
-            Gizmos.DrawWireCube((Vector2)_rb.position + _standingColliderOffset, _wallDetectorSize);
         }
 
         private void OnValidate() {

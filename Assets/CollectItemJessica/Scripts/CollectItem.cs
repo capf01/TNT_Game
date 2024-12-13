@@ -8,57 +8,32 @@ using TMPro;
 public class CollectItem : MonoBehaviour
 {
     [Header("UI")]
+    public Image itemImage; //imagem da UI que vai ganhar cor/sprite da lata
+    public Sprite originalSprite;
+    public Sprite mangoSprite;
+    public Sprite zeroSprite;
+    public Sprite focusSprite;
+    public Sprite acaiSprite;
     public TMP_Text _debugText;
 
+    [Header("Som")]
+    public AudioClip getItemSound;
+    private AudioSource audioSource;
+
     [Header("PowerUps")]
-    public ScriptableStats taroDevStats;
-    public string PowerUpName;
+    public PlayerController playerController; //dash e pulo duplo
+    public ScriptableStats taroDevStats; //dash e pulo duplo
+    public PowerFocusPinkLemonade powerFocusPinkLemonade; //script de visualizar o invisivel
+
     public GameObject collectableParticles;
+    //public Destroy_Cesar destroy;  // destruir parede
+    //public PushOrDestroy_Cesar pushOrDestroy;  // empurrar parede
 
-    public void Original()
-    {
-        Debug.Log("Ativou Original");
-        taroDevStats.AllowDoubleJump = true;
-        taroDevStats.AllowDash = false;
-        taroDevStats.AllowAttacks = false;
-        taroDevStats.AllowGrapplingHook = false;
-        taroDevStats.AllowHyperFocus = false;
-    }
 
-    public void Zero()
-    {
-        taroDevStats.AllowDash = true;
-        taroDevStats.AllowDoubleJump = false;
-        taroDevStats.AllowAttacks = false;
-        taroDevStats.AllowGrapplingHook = false;
-        taroDevStats.AllowHyperFocus = false;
-    }
 
-    public void Acai()
+    private void Start()
     {
-        taroDevStats.AllowAttacks = true;
-        taroDevStats.AllowDash = false;
-        taroDevStats.AllowDoubleJump = false;
-        taroDevStats.AllowGrapplingHook = false;
-        taroDevStats.AllowHyperFocus = false;
-    }
-
-    public void Mango()
-    {
-        taroDevStats.AllowGrapplingHook = true;
-        taroDevStats.AllowAttacks = false;
-        taroDevStats.AllowDash = false;
-        taroDevStats.AllowDoubleJump = false;
-        taroDevStats.AllowHyperFocus = false;
-    }
-
-    public void PinkLemonade()
-    {
-        taroDevStats.AllowHyperFocus = true;
-        taroDevStats.AllowGrapplingHook = false;
-        taroDevStats.AllowAttacks = false;
-        taroDevStats.AllowDash = false;
-        taroDevStats.AllowDoubleJump = false;
+        audioSource = GetComponent<AudioSource>(); //AudioSource do player
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //checar tag do objeto coletado e atualizar a imagem da UI
@@ -68,39 +43,109 @@ public class CollectItem : MonoBehaviour
         {
             if (gameObject.CompareTag("Original"))
             {
+                //AtualizarUI(originalSprite, "Original");
                 _debugText.text = "TNT Original = Double Jump activated";
-                Original();
-                Destroy(gameObject);
+                taroDevStats.AllowDoubleJump = true;
+                taroDevStats.AllowDash = false;
+                taroDevStats.AllowAttacks = false;
+                taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
+                Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Zero"))
             {
+                //AtualizarUI(originalSprite, "Original");
                 _debugText.text = "TNT Zero = Dash activated";
-                Zero();
-                Destroy(gameObject);
+                taroDevStats.AllowDash = true;
+                taroDevStats.AllowDoubleJump = false;
+                taroDevStats.AllowAttacks = false;
+                taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
+                Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Acai"))
             {
+                //AtualizarUI(originalSprite, "Original");
                 _debugText.text = "TNT Açai = Power Up";
-                Acai();
-                Destroy(gameObject);
+                taroDevStats.AllowAttacks = true;
+                taroDevStats.AllowDash = false;
+                taroDevStats.AllowDoubleJump = false;
+                taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowHyperFocus = false;
+                Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("Mango"))
             {
+                //AtualizarUI(originalSprite, "Original");
                 _debugText.text = "TNT Mango = Grappling Hook Activated";
-                Mango();
-                Destroy(gameObject);
+                taroDevStats.AllowGrapplingHook = true;
+                taroDevStats.AllowAttacks = false;
+                taroDevStats.AllowDash = false;
+                taroDevStats.AllowDoubleJump = false;
+                taroDevStats.AllowHyperFocus = false;
+                Destroy(gameObject); //remover item da cena
             }
             else if (gameObject.CompareTag("PinkLemonade"))
             {
+                //AtualizarUI(originalSprite, "Original");
                 _debugText.text = "TNT PinkLemonade = Hyper Focus";
-                PinkLemonade();
-                Destroy(gameObject);
+                taroDevStats.AllowHyperFocus = true;
+                taroDevStats.AllowGrapplingHook = false;
+                taroDevStats.AllowAttacks = false;
+                taroDevStats.AllowDash = false;
+                taroDevStats.AllowDoubleJump = false;
+                Destroy(gameObject); //remover item da cena
             }
+
             else if (gameObject.CompareTag("Collectable"))
             {
                 Instantiate(collectableParticles, transform.position, transform.rotation);
-                Destroy(gameObject);
+                Destroy(gameObject); //remover item da cena
             }
         }
     }
+
+    //att ui
+    private void AtualizarUI(Sprite novoSprite, string itemNome)
+    {
+        Debug.Log($"Player pegou a lata {itemNome}");
+
+        if (itemImage != null && novoSprite != null)
+        {
+            itemImage.sprite = novoSprite; //att sprite na ui
+            itemImage.color = Color.white; //colocar cor branca no sprite na ui
+        }
+
+        PlayGetItem(); //tocar som
+    }
+
+    //som quando pega item
+    private void PlayGetItem()
+    {
+        if (audioSource != null && getItemSound != null)
+        {
+            audioSource.PlayOneShot(getItemSound);
+        }
+    }
 }
+/* L GICA SUPONDO QUE ADD NO PLAYERCONTROLLER 
+public void ActivateDash() //DASH
+{
+    if (_canDash) 
+    {
+        HandleDash(); 
+    }
+}
+
+public void EnableDoubleJump() //PULO DUPLO
+{
+    if (taroDevStats != null && taroDevStats.MaxAirJumps > 0) {
+        _airJumpsRemaining = taroDevStats.MaxAirJumps;
+        Debug.Log("Pulo Duplo Ativado!");
+    }
+}
+
+/* TAG ACAI - CESAR; Destroy_Cesar e PushOrDestroy_Cesar 
+add refer ncias do CollectItem aos scripts Destroy_Cesar e PushOrDestroy_Cesar:
+
+*/

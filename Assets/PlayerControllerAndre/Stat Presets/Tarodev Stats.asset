@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b823639e543694d890e5f8a77be1af, type: 3}
   m_Name: Tarodev Stats
   m_EditorClassIdentifier: 
-  MaxSpeed: 7
+  MaxSpeed: 6
   Acceleration: 120
   GroundDeceleration: 60
   AirDeceleration: 30
@@ -53,11 +53,11 @@ MonoBehaviour:
   LadderCooldownFrames: 8
   AllowLedges: 1
   LedgeGrabDeceleration: 4
-  LedgeGrabPoint: {x: 0.31, y: 0.3}
-  StandUpOffset: {x: 0.7, y: 1.79}
+  LedgeGrabPoint: {x: 0.31, y: 0.75}
+  StandUpOffset: {x: 0.19, y: 0}
   LedgeRaycastSpacing: 0.3
   LedgeClimbDuration: 0.5
-  AllowDash: 1
+  AllowDash: 0
   DashVelocity: 17.9
   DashDurationFrames: 18
   DashEndHorizontalMultiplier: 0.25
@@ -65,9 +65,7 @@ MonoBehaviour:
   AttackFrameCooldown: 15
   AllowGrapplingHook: 0
   GrapplingGravity: 0.1
-  AllowHyperFocus: 0
-  isWhite: 1
-  isMan: 0
+  AllowHyperFocus: 1
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 0

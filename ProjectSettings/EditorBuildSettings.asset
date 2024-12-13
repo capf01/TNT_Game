@@ -6,27 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PlayerControllerAndre/Scenes/MainMenu.unity
-    guid: b89235a7a91b1da4287175d8c95d5823
-  - enabled: 1
-    path: Assets/Scenes/01City/LevelUrbano3.unity
-    guid: f3cd48311c72db04db2c39927954244c
-  - enabled: 1
-    path: Assets/Scenes/02Underworld/NEW-SubsoloLevel01 1.unity
-    guid: a8ff0dafe36f0f84190914e8fc9edb0d
-  - enabled: 1
-    path: Assets/Scenes/03Forest/Fase 1.unity
-    guid: 0dd858dae4ef8a0459a5da28a8991ac9
-  - enabled: 1
-    path: Assets/Scenes/04desert/LevelDesert 2.unity
-    guid: b3cd0c528d386584b873315a2bfc076c
-  - enabled: 1
-    path: Assets/Scenes/05Ice/Level1 Ice.unity
-    guid: ce7e5b007dfec1f4780faac9b88b40b4
-  - enabled: 1
-    path: Assets/Scenes/05Ice/Level2 Ice.unity
-    guid: c7f1fb7248d88374a81aba5109413b46
-  - enabled: 1
-    path: Assets/PlayerControllerAndre/Scenes/EndGame.unity
-    guid: 99d98f9e5e7399c44a2220fff97d9e77
+    path: Assets/PlayerControllerAndre/Scenes/Tutorial.unity
+    guid: 86322088f7792ca468136c98d49ce1aa
   m_configObjects: {}

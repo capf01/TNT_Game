@@ -9,6 +9,7 @@ public class Boladeneve : MonoBehaviour
     public float velocidade = 1f;
     private Vector3 direcao;
     public float kikadaForce = 0f;
+    private bool turned_right = true;
 
     void Start()
     {
