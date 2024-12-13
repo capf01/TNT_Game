@@ -12,7 +12,7 @@ namespace TarodevController {
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInputActions _actions;
-        private InputAction _move, _jump, _dash, _attack, _attackUp;
+        private InputAction _move, _jump, _dash, _attack, _attackUp, _start, _esc;
 
         private void Awake() {
             _actions = new PlayerInputActions();
@@ -21,6 +21,8 @@ namespace TarodevController {
             _dash = _actions.Player.Dash;
             _attack = _actions.Player.Attack;
             _attackUp = _actions.Player.Attack;
+            _start = _actions.Player.Start;
+            _esc = _actions.Player.Esc;
         }
 
         private void OnEnable() => _actions.Enable();
@@ -34,6 +36,8 @@ namespace TarodevController {
                 DashDown = _dash.WasPressedThisFrame(),
                 AttackDown = _attack.WasPressedThisFrame(),
                 AttackUp = _attackUp.WasReleasedThisFrame(),
+                Start = _start.WasPressedThisFrame(),
+                Esc = _esc.WasPressedThisFrame(),
                 Move = _move.ReadValue<Vector2>()
             };
         }
@@ -46,7 +50,9 @@ namespace TarodevController {
                 DashDown = Input.GetKeyDown(KeyCode.X),
                 AttackDown = Input.GetKeyDown(KeyCode.Z),
                 AttackUp = Input.GetKeyUp(KeyCode.Z),
-                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
+                AttackUp = Input.GetKeyDown(KeyCode.P),
+                Esc = Input.GetKeyDown(KeyCode.Escape),
+                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),,
             };
         }
 #endif
@@ -59,5 +65,7 @@ namespace TarodevController {
         public bool DashDown;
         public bool AttackDown;
         public bool AttackUp;
+        public bool Start;
+        public bool Esc;
     }
 }

@@ -228,7 +228,7 @@ namespace TarodevController {
         #region Attack
 
         [Header("ATTACK")] 
-        [SerializeField] private float _attackAnimTime = 0.25f;
+        [SerializeField] private float _attackAnimTime = 0.5f;
         [SerializeField] private AudioClip _attackClip;
         private bool _attacked;
 

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     {
         // Obtém a referência ao script CameraFollow
         cameraFollow = FindObjectOfType<CameraFollow>();
+        Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
+        Cursor.visible = false; // Oculta o cursor
     }
 
     public void TriggerShake()
